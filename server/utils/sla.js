@@ -1,7 +1,7 @@
 import db from '../database.js';
 
 export function getSLAConfig() {
-  const configs = db.prepare('SELECT * FROM configuracion WHERE key LIKE "sla_%"').all();
+  const configs = db.prepare("SELECT * FROM configuracion WHERE key LIKE 'sla_%'").all();
 
   return {
     Crítica: parseInt(configs.find(c => c.key === 'sla_critica')?.value || 4),

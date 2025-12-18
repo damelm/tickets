@@ -89,8 +89,8 @@ router.put('/email', verifyToken, requireAdmin, (req, res) => {
   }
 });
 
-// Obtener catálogos (sedes, categorías)
-router.get('/catalogos', verifyToken, (req, res) => {
+// Obtener catálogos (sedes, categorías) - Público para wizard
+router.get('/catalogos', (req, res) => {
   try {
     const catalogos = {
       sedes: [
