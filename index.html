@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dos Banderas · Un Hincha · Mundial 26</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23F5EDD5' stroke='%2314110D' stroke-width='6'/%3E%3Cpolygon points='50,28 60,42 55,55 45,55 40,42' fill='%2314110D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Caveat:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;900&family=DM+Mono:wght@400;500&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F5EDD5; --cream-deep: #E8DCB3; --ink: #14110D; --ink-soft: #3A332A;
+  --celeste: #6CACE4; --celeste-deep: #3A82C4; --sun: #FFC72C; --sun-deep: #F4A800;
+  --rojo: #E63946; --rojo-deep: #B91E2A; --azul: #1D4E89; --verde: #2A9D5C;
+  --line: rgba(20, 17, 13, 0.18);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); font-family: 'Outfit', sans-serif; overflow-x: hidden; line-height: 1.5; -webkit-font-smoothing: antialiased; position: relative; }
+body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 1; background-image: radial-gradient(circle, rgba(20, 17, 13, 0.18) 1px, transparent 1.5px); background-size: 9px 9px; opacity: 0.5; }
+body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 2; opacity: 0.12; mix-blend-mode: multiply; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0.7rem 1rem; display: flex; justify-content: space-between; align-items: center; background: var(--ink); color: var(--cream); border-bottom: 3px solid var(--sun); }
+.nav-logo { font-family: 'Bungee', sans-serif; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
+.nav-logo .ball-mini { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: var(--cream); border: 2px solid var(--ink); position: relative; animation: spin 3s linear infinite; }
+.nav-logo .ball-mini::before, .nav-logo .ball-mini::after { content: ''; position: absolute; background: var(--ink); }
+.nav-logo .ball-mini::before { width: 100%; height: 2px; top: 50%; left: 0; transform: translateY(-50%); }
+.nav-logo .ball-mini::after { width: 2px; height: 100%; top: 0; left: 50%; transform: translateX(-50%); }
+@keyframes spin { to { transform: rotate(360deg); } }
+.nav-actions { display: flex; gap: 0.5rem; align-items: center; }
+.modo-btn { font-family: 'Bungee', sans-serif; font-size: 0.65rem; padding: 0.45rem 0.8rem; background: var(--sun); color: var(--ink); border: none; cursor: pointer; letter-spacing: 0.05em; transition: all 0.2s; text-transform: uppercase; }
+.modo-btn:hover { background: var(--rojo); color: var(--cream); transform: scale(1.05) rotate(-2deg); }
+.modo-btn.active { background: var(--rojo); color: var(--cream); animation: modo-pulse 0.8s ease-in-out infinite; }
+@keyframes modo-pulse { 0%, 100% { transform: rotate(-2deg) scale(1); } 50% { transform: rotate(2deg) scale(1.05); } }
+.hero { position: relative; padding: 5rem 1rem 3rem; overflow: hidden; z-index: 3; background: radial-gradient(ellipse at top left, rgba(108, 172, 228, 0.4) 0%, transparent 50%), radial-gradient(ellipse at bottom right, rgba(230, 57, 70, 0.4) 0%, transparent 50%), var(--cream); }
+.ball-bg { position: absolute; pointer-events: none; z-index: 1; }
+.ball-bg svg { width: 100%; height: 100%; display: block; }
+.ball-1 { width: 60px; height: 60px; top: 15%; right: 8%; animation: bounce1 5s ease-in-out infinite, spin 6s linear infinite; }
+.ball-2 { width: 40px; height: 40px; bottom: 20%; left: 5%; animation: bounce2 4s ease-in-out infinite, spin 4s linear infinite reverse; }
+.ball-3 { width: 28px; height: 28px; top: 55%; right: 18%; animation: bounce3 6s ease-in-out infinite, spin 5s linear infinite; }
+.ball-4 { width: 50px; height: 50px; bottom: 8%; right: 30%; animation: bounce1 7s ease-in-out 1s infinite, spin 8s linear infinite reverse; opacity: 0.85; }
+@keyframes bounce1 { 0%, 100% { transform: translateY(0); } 25% { transform: translateY(-30px); } 50% { transform: translateY(15px); } 75% { transform: translateY(-12px); } }
+@keyframes bounce2 { 0%, 100% { transform: translateY(0) translateX(0); } 33% { transform: translateY(-25px) translateX(15px); } 66% { transform: translateY(10px) translateX(-10px); } }
+@keyframes bounce3 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+.sticker-float { position: absolute; z-index: 4; pointer-events: none; font-family: 'Bungee', sans-serif; font-size: 0.7rem; padding: 0.4rem 0.7rem; background: var(--sun); color: var(--ink); border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); text-transform: uppercase; animation: wobble 5s ease-in-out infinite; }
+.sf-1 { top: 14%; left: 4%; --rot: -12deg; background: var(--sun); }
+.sf-2 { top: 28%; right: 4%; --rot: 8deg; background: var(--celeste); color: var(--ink); animation-delay: 0.5s; }
+.sf-3 { bottom: 35%; left: 6%; --rot: -5deg; background: var(--rojo); color: var(--cream); animation-delay: 1s; }
+.sf-4 { bottom: 18%; right: 3%; --rot: 15deg; background: var(--ink); color: var(--sun); animation-delay: 0.3s; }
+@keyframes wobble { 0%, 100% { transform: rotate(var(--rot)) translateY(0); } 50% { transform: rotate(calc(var(--rot) + 4deg)) translateY(-5px); } }
+@media (max-width: 540px) { .sf-2, .sf-4 { display: none; } }
+.hero-inner { position: relative; z-index: 5; max-width: 1300px; margin: 0 auto; }
+.hero-meta { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.5rem; display: inline-block; background: var(--ink); color: var(--cream); padding: 0.3rem 0.7rem; transform: rotate(-1deg); }
+.hero-title { font-family: 'Anton', sans-serif; font-size: clamp(2.8rem, 14vw, 9.5rem); line-height: 0.95; text-transform: uppercase; letter-spacing: -0.01em; }
+.hero-title .row { display: block; opacity: 0; animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.hero-title .row:nth-child(1) { animation-delay: 0.3s; }
+.hero-title .row:nth-child(2) { animation-delay: 0.45s; transform: translateX(0.3em); }
+.hero-title .row:nth-child(3) { animation-delay: 0.6s; transform: translateX(-0.1em); }
+.hl-block { display: inline-block; padding: 0.02em 0.18em; color: var(--cream); margin-right: 0.08em; }
+.hl-celeste { background: var(--celeste); color: var(--ink); }
+.hl-rojo { background: var(--rojo); color: var(--cream); transform: rotate(-1deg); }
+.hl-sun { background: var(--sun); color: var(--ink); transform: rotate(1deg); }
+.hl-ink { background: var(--ink); color: var(--sun); }
+.hl-script { font-family: 'Caveat', cursive; font-weight: 700; font-size: 0.85em; text-transform: none; color: var(--rojo-deep); background: none; transform: rotate(-3deg); display: inline-block; padding: 0 0.05em; }
+@keyframes rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.hero-sub { margin-top: 2rem; max-width: 540px; font-size: 1.05rem; line-height: 1.55; color: var(--ink); }
+.hero-sub b { background: var(--sun); padding: 0.02em 0.2em; font-weight: 700; }
+.hero-sub .ce { background: var(--celeste); padding: 0.02em 0.2em; font-weight: 700; }
+.hero-sub .ro { background: var(--rojo); color: var(--cream); padding: 0.02em 0.2em; font-weight: 700; }
+.data-status { margin-top: 1.5rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.4rem 0.7rem; background: var(--cream-deep); border: 1px dashed var(--ink); text-transform: uppercase; letter-spacing: 0.05em; }
+.data-status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--verde); animation: pulse 2s ease-in-out infinite; }
+.data-status.error .dot { background: var(--rojo); }
+.data-status .refresh-btn { background: var(--ink); color: var(--cream); border: none; padding: 0.15rem 0.4rem; cursor: pointer; font-family: inherit; font-size: 0.6rem; letter-spacing: 0.05em; }
+.data-status .refresh-btn:hover { background: var(--rojo); }
+.countdown-wrap { margin-top: 2rem; padding: 1.3rem; background: var(--ink); color: var(--cream); border: 3px solid var(--ink); box-shadow: 7px 7px 0 var(--rojo), 14px 14px 0 var(--celeste); position: relative; }
+.countdown-wrap::before { content: '★ AGENDA ★'; position: absolute; top: -14px; left: 14px; background: var(--sun); color: var(--ink); font-family: 'Bungee', sans-serif; font-size: 0.7rem; padding: 0.2rem 0.6rem; transform: rotate(-3deg); border: 2px solid var(--ink); }
+.countdown-head { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.4rem; padding-top: 0.5rem; }
+.pulse { width: 8px; height: 8px; background: var(--sun); border-radius: 50%; animation: pulse 1.4s ease-in-out infinite; display: inline-block; margin-right: 0.5rem; }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+.countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+@media (max-width: 480px) { .countdown { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; } }
+.cd-unit { text-align: center; padding: 0.7rem 0.3rem; background: rgba(245, 237, 213, 0.07); border: 1px dashed rgba(245, 237, 213, 0.3); }
+.cd-num { font-family: 'Anton', sans-serif; font-size: clamp(1.7rem, 7vw, 2.4rem); line-height: 1; color: var(--sun); }
+.cd-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 0.4rem; opacity: 0.7; }
+.countdown-foot { margin-top: 1rem; font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.2rem; color: var(--celeste); text-align: center; }
+.countdown-foot b { color: var(--sun); font-weight: 700; }
+.marquee { background: var(--ink); color: var(--cream); padding: 0.8rem 0; overflow: hidden; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); position: relative; z-index: 5; }
+body.modo-hincha .marquee { background: var(--rojo); }
+.marquee-track { display: flex; white-space: nowrap; animation: scroll 26s linear infinite; font-family: 'Bungee', sans-serif; font-size: 1.1rem; }
+body.modo-hincha .marquee-track { animation-duration: 14s; }
+.marquee-track > span { display: inline-flex; gap: 2rem; align-items: center; padding-right: 2rem; }
+.heart { color: var(--rojo); font-family: 'Outfit', sans-serif; }
+body.modo-hincha .heart { color: var(--sun); }
+.star-sep { color: var(--sun); }
+.blue { color: var(--celeste); }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.team { padding: 3.5rem 1rem 4rem; position: relative; overflow: hidden; z-index: 3; }
+.team.argentina { background: var(--celeste); }
+.team.paraguay { background: var(--rojo); color: var(--cream); }
+.team-bg { position: absolute; pointer-events: none; opacity: 0.2; z-index: 1; }
+.argentina .team-bg { top: -100px; right: -80px; width: 380px; height: 380px; border-radius: 50%; background: var(--sun); animation: pulse-slow 8s ease-in-out infinite; }
+.paraguay .team-bg { bottom: -100px; left: -80px; width: 360px; height: 360px; background: var(--cream); clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); animation: rotate-slow 30s linear infinite; }
+@keyframes pulse-slow { 0%, 100% { transform: scale(1); opacity: 0.2; } 50% { transform: scale(1.08); opacity: 0.28; } }
+@keyframes rotate-slow { to { transform: rotate(360deg); } }
+.section-sticker { position: absolute; z-index: 4; font-family: 'Bungee', sans-serif; font-size: 0.7rem; padding: 0.4rem 0.7rem; border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); text-transform: uppercase; }
+.argentina .ss-1 { top: 14px; right: 14px; transform: rotate(8deg); background: var(--sun); color: var(--ink); }
+.argentina .ss-2 { bottom: 12px; right: 30px; transform: rotate(-6deg); background: var(--ink); color: var(--sun); font-family: 'Permanent Marker', cursive; font-size: 0.85rem; }
+.paraguay .ss-1 { top: 14px; left: 14px; transform: rotate(-7deg); background: var(--cream); color: var(--ink); }
+.paraguay .ss-2 { bottom: 12px; right: 14px; transform: rotate(5deg); background: var(--sun); color: var(--ink); font-family: 'Permanent Marker', cursive; font-size: 0.85rem; }
+.team-inner { position: relative; z-index: 3; max-width: 1300px; margin: 0 auto; }
+.team-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+.team-num { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.5rem; background: var(--ink); color: var(--cream); padding: 0.2rem 0.6rem; transform: rotate(-2deg); display: inline-block; margin-bottom: 0.5rem; }
+.paraguay .team-num { background: var(--cream); color: var(--ink); }
+.team-name { font-family: 'Anton', sans-serif; font-size: clamp(2.5rem, 11vw, 5.5rem); line-height: 0.9; text-transform: uppercase; }
+.argentina .team-name .accent { background: var(--ink); color: var(--celeste); padding: 0 0.1em; display: inline-block; transform: rotate(-1deg); }
+.paraguay .team-name .accent { background: var(--cream); color: var(--rojo); padding: 0 0.1em; display: inline-block; transform: rotate(1deg); }
+.team-tag { font-family: 'Permanent Marker', cursive; font-size: 1.1rem; max-width: 280px; line-height: 1.2; transform: rotate(-2deg); }
+.argentina .team-tag { color: var(--azul); }
+.paraguay .team-tag { color: var(--sun); }
+.matches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+@media (max-width: 860px) { .matches { grid-template-columns: 1fr; gap: 2rem; } }
+.loading-placeholder { grid-column: 1 / -1; text-align: center; padding: 3rem 1rem; font-family: 'Permanent Marker', cursive; font-size: 1.3rem; color: var(--ink); opacity: 0.6; }
+.ticket { background: var(--cream); color: var(--ink); border: 3px solid var(--ink); padding: 1.2rem; position: relative; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 5px 5px 0 var(--ink); }
+.ticket:nth-child(3n+1) { transform: rotate(-2.5deg); }
+.ticket:nth-child(3n+2) { transform: rotate(1.5deg); }
+.ticket:nth-child(3n) { transform: rotate(-1deg); }
+.ticket:hover { transform: rotate(0deg) translateY(-8px) scale(1.03); box-shadow: 8px 8px 0 var(--ink); z-index: 10; }
+.ticket::before { content: ''; position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(-2deg); width: 80px; height: 22px; background: rgba(255, 199, 44, 0.85); background-image: repeating-linear-gradient(45deg, transparent 0 4px, rgba(20, 17, 13, 0.08) 4px 5px); border-left: 1px dashed rgba(20, 17, 13, 0.3); border-right: 1px dashed rgba(20, 17, 13, 0.3); box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
+.ticket:nth-child(3n+2)::before { background: rgba(108, 172, 228, 0.85); background-image: repeating-linear-gradient(45deg, transparent 0 4px, rgba(20, 17, 13, 0.08) 4px 5px); transform: translateX(-50%) rotate(3deg); }
+.ticket:nth-child(3n)::before { background: rgba(230, 57, 70, 0.85); background-image: repeating-linear-gradient(45deg, transparent 0 4px, rgba(20, 17, 13, 0.08) 4px 5px); transform: translateX(-50%) rotate(-1deg); }
+.ticket.live { animation: live-pulse 2s ease-in-out infinite; }
+@keyframes live-pulse { 0%, 100% { box-shadow: 5px 5px 0 var(--ink); } 50% { box-shadow: 5px 5px 0 var(--ink), 0 0 0 4px rgba(230, 57, 70, 0.3); } }
+.ticket-row1 { display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.9rem; padding-bottom: 0.7rem; border-bottom: 2px dashed var(--line); }
+.ticket-day { font-family: 'Bungee', sans-serif; color: var(--ink); background: var(--sun); padding: 0.15rem 0.4rem; font-size: 0.7rem; }
+.ticket-round { font-weight: 700; opacity: 0.7; align-self: center; }
+.match-status { display: inline-block; font-family: 'Bungee', sans-serif; font-size: 0.6rem; padding: 0.15rem 0.4rem; margin-left: 0.3rem; letter-spacing: 0.05em; }
+.match-status.status-live { background: var(--rojo); color: var(--cream); animation: live-blink 1s ease-in-out infinite; }
+.match-status.status-final { background: var(--verde); color: var(--cream); }
+.match-status.status-soon { background: var(--celeste); color: var(--ink); }
+@keyframes live-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+.ticket-match { font-family: 'Anton', sans-serif; font-size: 1.9rem; line-height: 0.95; text-transform: uppercase; margin-bottom: 1.1rem; }
+.ticket-match .home { display: inline-block; background: var(--ink); color: var(--cream); padding: 0 0.15em; }
+.argentina .ticket-match .home { background: var(--celeste); color: var(--ink); }
+.paraguay .ticket-match .home { background: var(--rojo); color: var(--cream); }
+.ticket-match .vs { font-family: 'Caveat', cursive; font-size: 1.2rem; color: var(--rojo); text-transform: lowercase; display: block; margin: 0.2rem 0; font-weight: 700; transform: rotate(-2deg); }
+.score-final { display: flex; align-items: center; justify-content: center; gap: 0.8rem; padding: 1rem 0; margin-bottom: 0.8rem; background: var(--ink); color: var(--sun); font-family: 'Anton', sans-serif; font-size: 2.4rem; line-height: 1; }
+.score-final .sep { color: var(--cream); font-size: 1.4rem; }
+.score-final .team-mini { font-size: 0.7rem; font-family: 'DM Mono', monospace; color: var(--cream); display: block; letter-spacing: 0.05em; }
+.ticket-foot { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 0.8rem; border-top: 2px dashed var(--line); margin-bottom: 0.8rem; }
+.ticket-time { font-family: 'Bungee', sans-serif; font-size: 1.5rem; line-height: 1; }
+.ticket-time-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-soft); margin-bottom: 0.2rem; }
+.ticket-venue { text-align: right; font-size: 0.75rem; line-height: 1.3; max-width: 50%; }
+.ticket-venue strong { display: block; font-weight: 700; }
+.predict { border-top: 2px dashed var(--line); padding-top: 0.8rem; margin-top: 0.4rem; }
+.predict-label { font-family: 'Permanent Marker', cursive; font-size: 0.9rem; color: var(--rojo); margin-bottom: 0.5rem; text-align: center; transform: rotate(-1deg); }
+.predict-buttons { display: flex; gap: 0.4rem; }
+.predict-btn { flex: 1; font-family: 'Bungee', sans-serif; font-size: 0.6rem; padding: 0.5rem 0.3rem; background: var(--cream); color: var(--ink); border: 2px solid var(--ink); cursor: pointer; transition: all 0.15s; text-transform: uppercase; }
+.predict-btn:hover { background: var(--sun); transform: translateY(-2px); }
+.predict-btn.selected { background: var(--verde); color: var(--cream); transform: rotate(-1deg) scale(1.05); box-shadow: 3px 3px 0 var(--ink); position: relative; }
+.predict-btn.selected::after { content: '✓'; position: absolute; top: -8px; right: -8px; background: var(--sun); color: var(--ink); width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--ink); font-size: 0.75rem; line-height: 16px; text-align: center; }
+.predict-btn.correct { background: var(--verde); color: var(--cream); }
+.predict-btn.incorrect { background: var(--rojo-deep); color: var(--cream); opacity: 0.7; }
+.standings-wrap { margin-top: 2rem; padding: 1.2rem; background: rgba(245, 237, 213, 0.9); border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); color: var(--ink); }
+.standings-title { font-family: 'Bungee', sans-serif; font-size: 0.9rem; margin-bottom: 0.8rem; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+.standings-title .group-label { background: var(--ink); color: var(--sun); padding: 0.15rem 0.5rem; font-size: 0.7rem; }
+.standings-table { width: 100%; border-collapse: collapse; font-family: 'DM Mono', monospace; font-size: 0.75rem; }
+.standings-table th { text-align: left; padding: 0.4rem 0.3rem; background: var(--ink); color: var(--cream); font-weight: 400; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 0.08em; }
+.standings-table td { padding: 0.4rem 0.3rem; border-bottom: 1px dashed var(--line); }
+.standings-table .pos { font-family: 'Anton', sans-serif; font-size: 1rem; background: var(--cream-deep); text-align: center; width: 24px; }
+.standings-table tr:nth-child(-n+2) .pos { background: var(--verde); color: var(--cream); }
+.standings-table .team-cell { font-family: 'Outfit', sans-serif; font-weight: 700; }
+.standings-table .pts { font-family: 'Bungee', sans-serif; font-size: 0.85rem; text-align: right; }
+.standings-table .num { text-align: center; }
+.predict-summary { padding: 3.5rem 1rem; background: var(--cream); text-align: center; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); position: relative; z-index: 3; }
+.ps-head { font-family: 'Permanent Marker', cursive; font-size: 1.4rem; color: var(--rojo); transform: rotate(-2deg); display: inline-block; margin-bottom: 0.4rem; }
+.ps-title { font-family: 'Anton', sans-serif; font-size: clamp(2rem, 8vw, 4rem); line-height: 0.95; text-transform: uppercase; margin-bottom: 1.5rem; }
+.ps-title .h { background: var(--celeste); color: var(--ink); padding: 0 0.15em; display: inline-block; transform: rotate(-1deg); }
+.ps-empty { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.3rem; color: var(--ink-soft); }
+.ps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.8rem; max-width: 900px; margin: 1.5rem auto 0; }
+.ps-cell { background: var(--ink); color: var(--cream); padding: 0.8rem 0.6rem; border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--rojo); text-align: left; transform: rotate(-1deg); transition: transform 0.2s; }
+.ps-cell:nth-child(even) { transform: rotate(1deg); box-shadow: 4px 4px 0 var(--celeste); }
+.ps-cell:hover { transform: rotate(0deg) translateY(-3px); }
+.ps-cell.correct { box-shadow: 4px 4px 0 var(--verde); }
+.ps-cell.incorrect { box-shadow: 4px 4px 0 var(--rojo-deep); opacity: 0.8; }
+.ps-cell-meta { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; margin-bottom: 0.3rem; }
+.ps-cell-vote { font-family: 'Bungee', sans-serif; font-size: 1rem; color: var(--sun); }
+.ps-cell .result-badge { font-family: 'Permanent Marker', cursive; font-size: 0.75rem; margin-top: 0.3rem; display: inline-block; }
+.ps-cell.correct .result-badge { color: var(--verde); }
+.ps-cell.incorrect .result-badge { color: var(--rojo); }
+.timeline-section { padding: 4rem 1rem; background: var(--cream-deep); border-top: 3px solid var(--ink); position: relative; z-index: 3; }
+.timeline-wrap { max-width: 900px; margin: 0 auto; }
+.timeline-head { text-align: center; margin-bottom: 2.5rem; }
+.timeline-head .small { font-family: 'Permanent Marker', cursive; font-size: 1.3rem; color: var(--rojo-deep); transform: rotate(-2deg); display: inline-block; background: var(--sun); padding: 0.2rem 0.7rem; border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); }
+.timeline-head .big { font-family: 'Anton', sans-serif; font-size: clamp(2.2rem, 9vw, 4.2rem); line-height: 0.95; text-transform: uppercase; margin-top: 1rem; }
+.timeline-head .big .ye { background: var(--sun); color: var(--ink); padding: 0 0.15em; display: inline-block; transform: rotate(-1deg); }
+.tline { position: relative; padding-left: 2rem; }
+.tline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 4px; background: repeating-linear-gradient(to bottom, var(--celeste) 0 14px, var(--cream) 14px 16px, var(--rojo) 16px 30px, var(--cream) 30px 32px); }
+.tnode { position: relative; padding-bottom: 1.9rem; opacity: 0; transform: translateX(-20px); transition: all 0.6s ease; }
+.tnode.visible { opacity: 1; transform: translateX(0); }
+.tnode::before { content: ''; position: absolute; left: -1.7rem; top: 6px; width: 18px; height: 18px; border-radius: 50%; background: var(--cream); border: 3px solid var(--ink); transition: all 0.3s; }
+.tnode:hover::before { background: var(--sun); transform: scale(1.3) rotate(15deg); }
+.tnode.final-node::before { background: var(--sun); box-shadow: 0 0 0 6px rgba(255, 199, 44, 0.4); }
+.tnode-date { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-soft); margin-bottom: 0.2rem; }
+.tnode-title { font-family: 'Anton', sans-serif; font-size: 1.6rem; line-height: 1; text-transform: uppercase; margin-bottom: 0.3rem; }
+.tnode.final-node .tnode-title { background: var(--rojo); color: var(--cream); padding: 0.1rem 0.4rem; display: inline-block; transform: rotate(-2deg); }
+.tnode-where { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.1rem; color: var(--ink-soft); }
+.closing { padding: 5rem 1rem 4rem; background: radial-gradient(ellipse at center, var(--sun) 0%, transparent 60%), linear-gradient(180deg, var(--celeste) 0%, var(--rojo) 100%); text-align: center; position: relative; overflow: hidden; border-top: 3px solid var(--ink); z-index: 3; }
+.confetti { position: absolute; width: 8px; height: 14px; pointer-events: none; }
+.closing-inner { position: relative; z-index: 5; }
+.closing-tag { font-family: 'Permanent Marker', cursive; font-size: 1.4rem; color: var(--ink); transform: rotate(-3deg); display: inline-block; margin-bottom: 1rem; background: var(--cream); padding: 0.2rem 0.7rem; border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); }
+.closing-title { font-family: 'Anton', sans-serif; font-size: clamp(2rem, 8vw, 4.5rem); line-height: 1; text-transform: uppercase; color: var(--ink); max-width: 900px; margin: 0 auto; }
+.closing-title .em { font-family: 'Permanent Marker', cursive; text-transform: lowercase; font-size: 0.7em; color: var(--cream); background: var(--ink); padding: 0 0.15em; display: inline-block; transform: rotate(-2deg); }
+.closing-quote { margin-top: 2.5rem; font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.5rem; color: var(--ink); max-width: 500px; margin-left: auto; margin-right: auto; transform: rotate(-1deg); }
+body.modo-hincha { animation: shake 0.4s ease-in-out 1; }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
+.papelito { position: fixed; top: -30px; width: 10px; height: 16px; pointer-events: none; z-index: 199; animation: fall linear infinite; }
+@keyframes fall { to { transform: translateY(105vh) rotate(720deg); } }
+footer { padding: 2.5rem 1rem 2rem; background: var(--ink); color: var(--cream); text-align: center; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; position: relative; z-index: 3; }
+footer .flags { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 0.9rem; }
+footer .flag-mini { width: 38px; height: 25px; border: 1px solid var(--cream); }
+footer .sticker-foot { display: inline-block; margin-bottom: 1rem; background: var(--sun); color: var(--ink); padding: 0.3rem 0.7rem; font-family: 'Bungee', sans-serif; font-size: 0.65rem; transform: rotate(-2deg); border: 2px solid var(--cream); }
+footer .credit { margin-top: 0.8rem; opacity: 0.6; font-size: 0.6rem; }
+footer a { color: var(--celeste); text-decoration: none; }
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.flag { display: inline-block; width: 1.15em; height: 0.78em; object-fit: cover; border: 1.5px solid var(--ink); box-shadow: 1px 1px 0 var(--ink); vertical-align: -0.1em; margin-right: 0.3em; }
+.ticket-match .flag { width: 0.78em; height: 0.53em; vertical-align: 0.02em; margin-right: 0.22em; box-shadow: none; border-width: 1px; }
+.ticket-match .home .flag { border-color: var(--cream); }
+.argentina .ticket-match .home .flag, .paraguay .ticket-match .home .flag { border-color: var(--ink); }
+.score-final .flag.big { display: block; width: 2em; height: 1.34em; margin: 0 auto 0.35rem; box-shadow: 1px 1px 0 var(--cream); }
+.standings-table .flag { width: 1.4em; height: 0.95em; box-shadow: none; }
+.team-id { display: flex; align-items: center; gap: 1.1rem; }
+.team-crest { width: 92px; height: 61px; object-fit: cover; border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); transform: rotate(-3deg); transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); flex-shrink: 0; background: var(--cream); }
+.team-crest:hover { transform: rotate(0) scale(1.06); }
+.paraguay .team-crest { transform: rotate(3deg); box-shadow: 5px 5px 0 var(--cream); border-color: var(--cream); }
+.paraguay .team-crest:hover { transform: rotate(0) scale(1.06); }
+@media (max-width: 480px) { .team-crest { width: 70px; height: 47px; } .team-id { gap: 0.7rem; } }
+footer .flag-mini { object-fit: cover; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo"><span class="ball-mini"></span> DOS BANDERAS · 26</div>
+  <div class="nav-actions"><button class="modo-btn" id="modoBtn">★ Modo Hincha</button></div>
+</nav>
+<section class="hero">
+  <div class="ball-bg ball-1"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#F5EDD5" stroke="#14110D" stroke-width="3"/><polygon points="50,28 60,42 55,55 45,55 40,42" fill="#14110D"/><polygon points="50,28 65,22 75,38 60,42" fill="none" stroke="#14110D" stroke-width="2"/><polygon points="50,28 35,22 25,38 40,42" fill="none" stroke="#14110D" stroke-width="2"/><polygon points="55,55 65,72 50,80 45,55" fill="none" stroke="#14110D" stroke-width="2"/></svg></div>
+  <div class="ball-bg ball-2"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#FFC72C" stroke="#14110D" stroke-width="3"/><polygon points="50,28 60,42 55,55 45,55 40,42" fill="#14110D"/></svg></div>
+  <div class="ball-bg ball-3"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#E63946" stroke="#14110D" stroke-width="3"/><polygon points="50,28 60,42 55,55 45,55 40,42" fill="#F5EDD5"/></svg></div>
+  <div class="ball-bg ball-4"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#F5EDD5" stroke="#14110D" stroke-width="3"/><polygon points="50,28 60,42 55,55 45,55 40,42" fill="#14110D"/><polygon points="50,28 65,22 75,38 60,42" fill="none" stroke="#14110D" stroke-width="2"/><polygon points="50,28 35,22 25,38 40,42" fill="none" stroke="#14110D" stroke-width="2"/></svg></div>
+  <div class="sticker-float sf-1">★ Bicampeón ★</div>
+  <div class="sticker-float sf-2">16 años después</div>
+  <div class="sticker-float sf-3">Sin Messi&nbsp;no</div>
+  <div class="sticker-float sf-4">Made in calle</div>
+  <div class="hero-inner">
+    <div class="hero-meta">FIFA WC · 11.06 → 19.07.2026 · USA · MEX · CAN</div>
+    <h1 class="hero-title">
+      <span class="row"><span class="hl-block hl-celeste">DOS</span> <span class="hl-block hl-rojo">BANDERAS,</span></span>
+      <span class="row"><span class="hl-script">un solito</span> <span class="hl-block hl-ink">HINCHA</span></span>
+      <span class="row"><span class="hl-block hl-sun">UN MUNDIAL.</span></span>
+    </h1>
+    <p class="hero-sub">Una <span class="ro">Albirroja</span> que vuelve después de 16 años. Una <span class="ce">Albiceleste</span> que llega a defender la corona. <b>39 días</b> para alentar por las dos sin disimular.</p>
+    <div class="data-status" id="dataStatus"><span class="dot"></span><span id="statusText">Cargando datos...</span><button class="refresh-btn" id="refreshBtn">↻ Refrescar</button></div>
+    <div class="countdown-wrap">
+      <div class="countdown-head"><span><span class="pulse"></span><span id="cdTitle">FALTA PARA QUE ARRANQUE TODO</span></span><span id="cdSubtitle">PARAGUAY vs EE.UU.</span></div>
+      <div class="countdown" id="countdown">
+        <div class="cd-unit"><div class="cd-num" id="cd-days">00</div><div class="cd-label">Días</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Horas</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">Min</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Seg</div></div>
+      </div>
+      <div class="countdown-foot" id="cdFoot">viernes 12 de junio · <b>22:00 PY</b></div>
+    </div>
+  </div>
+</section>
+<div class="marquee"><div class="marquee-track"><span>VAMOS ALBIRROJA <span class="heart">♥</span> VAMOS ALBICELESTE <span class="blue">★</span> GRUPO D <span class="star-sep">·</span> GRUPO J <span class="star-sep">★</span> CALIFORNIA · TEXAS · KANSAS <span class="heart">♥</span> DOBLE CAMISETA, DOBLE CORAZÓN <span class="star-sep">★</span> QUE GANEN LAS DOS <span class="blue">★</span></span><span>VAMOS ALBIRROJA <span class="heart">♥</span> VAMOS ALBICELESTE <span class="blue">★</span> GRUPO D <span class="star-sep">·</span> GRUPO J <span class="star-sep">★</span> CALIFORNIA · TEXAS · KANSAS <span class="heart">♥</span> DOBLE CAMISETA, DOBLE CORAZÓN <span class="star-sep">★</span> QUE GANEN LAS DOS <span class="blue">★</span></span></div></div>
+<section class="team argentina" id="argentina">
+  <div class="team-bg"></div>
+  <div class="section-sticker ss-1">★ BICAMPEÓN ★</div>
+  <div class="section-sticker ss-2">3 estrellas</div>
+  <div class="team-inner">
+    <div class="team-header reveal"><div class="team-id"><img class="team-crest" src="https://flagcdn.com/ar.svg" width="92" height="61" alt="Bandera de Argentina" loading="lazy"><div><div class="team-num">01 · GRUPO J</div><h2 class="team-name"><span class="accent">Albi</span>celeste</h2></div></div><div class="team-tag">Campeón vigente.<br>Kansas y Dallas.</div></div>
+    <div class="matches" id="matches-arg"><div class="loading-placeholder">cargando partidos...</div></div>
+    <div class="standings-wrap" id="standings-arg" style="display:none;">
+      <div class="standings-title"><span>Tabla del grupo</span><span class="group-label">GRUPO J</span></div>
+      <table class="standings-table"><thead><tr><th></th><th>Equipo</th><th class="num">PJ</th><th class="num">G</th><th class="num">E</th><th class="num">P</th><th class="num">GF:GC</th><th>PTS</th></tr></thead><tbody id="standings-arg-body"></tbody></table>
+    </div>
+  </div>
+</section>
+<section class="team paraguay" id="paraguay">
+  <div class="team-bg"></div>
+  <div class="section-sticker ss-1">VOLVIÓ LA ALBIRROJA</div>
+  <div class="section-sticker ss-2">tras 16 años</div>
+  <div class="team-inner">
+    <div class="team-header reveal"><div class="team-id"><img class="team-crest" src="https://flagcdn.com/py.svg" width="92" height="61" alt="Bandera de Paraguay" loading="lazy"><div><div class="team-num">02 · GRUPO D</div><h2 class="team-name"><span class="accent">Albi</span>rroja</h2></div></div><div class="team-tag">Toda la fase en California.<br>De Alfaro a la gloria.</div></div>
+    <div class="matches" id="matches-pry"><div class="loading-placeholder">cargando partidos...</div></div>
+    <div class="standings-wrap" id="standings-pry" style="display:none;">
+      <div class="standings-title"><span>Tabla del grupo</span><span class="group-label">GRUPO D</span></div>
+      <table class="standings-table"><thead><tr><th></th><th>Equipo</th><th class="num">PJ</th><th class="num">G</th><th class="num">E</th><th class="num">P</th><th class="num">GF:GC</th><th>PTS</th></tr></thead><tbody id="standings-pry-body"></tbody></table>
+    </div>
+  </div>
+</section>
+<section class="predict-summary" id="predictSummary">
+  <div class="ps-head">tus pronósticos</div>
+  <h2 class="ps-title"><span class="h">Cómo</span> ves la cosa</h2>
+  <div id="psContent"><p class="ps-empty">Hacé clic en los partidos de arriba y se llenan acá ☝️</p></div>
+</section>
+<section class="timeline-section" id="cuando">
+  <div class="timeline-wrap">
+    <div class="timeline-head reveal"><div class="small">después de la fase de grupos...</div><div class="big">El camino <span class="ye">al MetLife</span></div></div>
+    <div class="tline">
+      <div class="tnode reveal"><div class="tnode-date">JUE · 11 JUN</div><div class="tnode-title">Inauguración</div><div class="tnode-where">México vs. Sudáfrica · Estadio Azteca</div></div>
+      <div class="tnode reveal"><div class="tnode-date">11 → 27 JUN</div><div class="tnode-title">Fase de grupos</div><div class="tnode-where">12 grupos · 4 selecciones cada uno</div></div>
+      <div class="tnode reveal"><div class="tnode-date">28 JUN → 3 JUL</div><div class="tnode-title">Dieciseisavos</div><div class="tnode-where">la ronda nueva del torneo</div></div>
+      <div class="tnode reveal"><div class="tnode-date">4 → 7 JUL</div><div class="tnode-title">Octavos</div><div class="tnode-where">Filadelfia · Houston · Dallas · Vancouver</div></div>
+      <div class="tnode reveal"><div class="tnode-date">9 → 11 JUL</div><div class="tnode-title">Cuartos</div><div class="tnode-where">Boston · LA · Miami · Kansas City</div></div>
+      <div class="tnode reveal"><div class="tnode-date">14 + 15 JUL</div><div class="tnode-title">Semis</div><div class="tnode-where">Dallas y Atlanta</div></div>
+      <div class="tnode reveal"><div class="tnode-date">SÁB · 18 JUL</div><div class="tnode-title">Tercer puesto</div><div class="tnode-where">Hard Rock Stadium · Miami</div></div>
+      <div class="tnode final-node reveal"><div class="tnode-date">DOM · 19 JUL · 21:00 ET</div><div class="tnode-title">LA FINAL</div><div class="tnode-where">MetLife Stadium · Nueva Jersey</div></div>
+    </div>
+  </div>
+</section>
+<section class="closing" id="confetti-zone">
+  <div class="closing-inner">
+    <div class="closing-tag">·  pacto de hincha doble  ·</div>
+    <h2 class="closing-title">Que ganen <span class="em">las dos</span>.<br>Y si se cruzan, <span class="em">que sea en la final</span>.</h2>
+    <p class="closing-quote">— junio 2026, Asunción</p>
+  </div>
+</section>
+<footer>
+  <div class="flags"><img class="flag-mini" src="https://flagcdn.com/ar.svg" width="38" height="25" alt="Argentina" loading="lazy"><img class="flag-mini" src="https://flagcdn.com/py.svg" width="38" height="25" alt="Paraguay" loading="lazy"></div>
+  <div class="sticker-foot">★ HECHO EN ASUNCIÓN ★</div>
+  <div>CON ALMA RIOPLATENSE · M26</div>
+  <div class="credit">Datos en vivo: openfootball · dominio público</div>
+</footer>
+<script>
+const CONFIG = {
+  PRIMARY_URL: 'https://cdn.jsdelivr.net/gh/openfootball/worldcup.json@master/2026/worldcup.json',
+  FALLBACK_URL: 'https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json',
+  REFRESH_INTERVAL: 5 * 60 * 1000,
+  PY_TZ: 'America/Asuncion'
+};
+const TEAMS = {
+  argentina: { name: 'Argentina', group: 'Group J', sectionId: 'matches-arg', standingsId: 'standings-arg', standingsBodyId: 'standings-arg-body' },
+  paraguay: { name: 'Paraguay', group: 'Group D', sectionId: 'matches-pry', standingsId: 'standings-pry', standingsBodyId: 'standings-pry-body' }
+};
+const COUNTRY_ES = {
+  'Mexico':'México','South Africa':'Sudáfrica','South Korea':'Corea del Sur','Czech Republic':'Rep. Checa',
+  'Canada':'Canadá','Bosnia & Herzegovina':'Bosnia','Qatar':'Qatar','Switzerland':'Suiza','Brazil':'Brasil',
+  'Morocco':'Marruecos','Haiti':'Haití','Scotland':'Escocia','USA':'EE.UU.','United States':'EE.UU.',
+  'Paraguay':'Paraguay','Australia':'Australia','Turkey':'Turquía','Germany':'Alemania',
+  'Curaçao':'Curazao','Curacao':'Curazao','Ivory Coast':'Costa de Marfil','Ecuador':'Ecuador',
+  'Netherlands':'P. Bajos','Japan':'Japón','Sweden':'Suecia','Tunisia':'Túnez','Belgium':'Bélgica',
+  'Egypt':'Egipto','Iran':'Irán','New Zealand':'N. Zelanda','Spain':'España','Cape Verde':'Cabo Verde',
+  'Saudi Arabia':'A. Saudita','Uruguay':'Uruguay','France':'Francia','Senegal':'Senegal',
+  'Iraq':'Irak','Norway':'Noruega','Argentina':'Argentina','Algeria':'Argelia','Austria':'Austria',
+  'Jordan':'Jordania','Portugal':'Portugal','DR Congo':'RD Congo','Uzbekistan':'Uzbekistán',
+  'Colombia':'Colombia','England':'Inglaterra','Croatia':'Croacia','Ghana':'Ghana','Panama':'Panamá'
+};
+const VENUES_ES = {
+  'Mexico City':'CDMX','Guadalajara (Zapopan)':'Guadalajara','Monterrey':'Monterrey',
+  'Toronto':'Toronto','Vancouver':'Vancouver','Los Angeles (Inglewood)':'SoFi Stadium · LA',
+  'San Francisco (Santa Clara)':"Levi's · SF",'Boston (Foxborough)':'Gillette · Boston',
+  'New York/New Jersey (East Rutherford)':'MetLife · NJ','Philadelphia':'Philadelphia',
+  'Houston':'NRG · Houston','Dallas (Arlington)':'AT&T · Dallas',
+  'Miami (Miami Gardens)':'Hard Rock · Miami','Atlanta':'Mercedes-Benz · Atlanta',
+  'Kansas City':'Arrowhead · KC','Seattle':'Lumen · Seattle'
+};
+const FLAG_CODE = {
+  'Mexico':'mx','South Africa':'za','South Korea':'kr','Czech Republic':'cz','Canada':'ca',
+  'Bosnia & Herzegovina':'ba','Qatar':'qa','Switzerland':'ch','Brazil':'br','Morocco':'ma',
+  'Haiti':'ht','Scotland':'gb-sct','USA':'us','United States':'us','Paraguay':'py',
+  'Australia':'au','Turkey':'tr','Germany':'de','Curaçao':'cw','Curacao':'cw',
+  'Ivory Coast':'ci','Ecuador':'ec','Netherlands':'nl','Japan':'jp','Sweden':'se',
+  'Tunisia':'tn','Belgium':'be','Egypt':'eg','Iran':'ir','New Zealand':'nz','Spain':'es',
+  'Cape Verde':'cv','Saudi Arabia':'sa','Uruguay':'uy','France':'fr','Senegal':'sn',
+  'Iraq':'iq','Norway':'no','Argentina':'ar','Algeria':'dz','Austria':'at','Jordan':'jo',
+  'Portugal':'pt','DR Congo':'cd','Uzbekistan':'uz','Colombia':'co','England':'gb-eng',
+  'Croatia':'hr','Ghana':'gh','Panama':'pa'
+};
+function flagHtml(name, cls) {
+  const c = FLAG_CODE[name];
+  if (!c) return '';
+  return `<img class="flag ${cls||''}" src="https://flagcdn.com/${c}.svg" alt="" loading="lazy" onerror="this.remove()">`;
+}
+let appData = null;
+let predictions = {};
+function translateCountry(n) { if (/^[WL]\d+$/.test(n)||/^[12]\w$/.test(n)) return 'Por definir'; return COUNTRY_ES[n]||n; }
+function translateVenue(n) { return VENUES_ES[n]||n; }
+function parseMatchDate(m) {
+  if (!m.time) return new Date(`${m.date}T12:00:00-04:00`);
+  const x = m.time.trim().match(/^(\d{1,2}):(\d{2})\s+UTC([+-])(\d{1,2})$/);
+  if (!x) return new Date(`${m.date}T${m.time.trim()}-04:00`);
+  return new Date(`${m.date}T${x[1].padStart(2,'0')}:${x[2]}:00${x[3]}${x[4].padStart(2,'0')}:00`);
+}
+function formatPyDay(d) { return new Intl.DateTimeFormat('es-AR',{timeZone:CONFIG.PY_TZ,weekday:'short',day:'2-digit',month:'short'}).format(d).replace('.','').replace(/\s+/g,' ').toUpperCase(); }
+function formatPyTime(d) { return new Intl.DateTimeFormat('es-AR',{timeZone:CONFIG.PY_TZ,hour:'2-digit',minute:'2-digit',hour12:false}).format(d); }
+function formatPyFull(d) { return `${formatPyDay(d).toLowerCase()} · ${formatPyTime(d)} PY`; }
+function getStatus(m) {
+  if (m.score&&m.score.ft) return 'final';
+  const diff = Date.now()-parseMatchDate(m).getTime();
+  if (diff>0&&diff<9e6) return 'live';
+  if (diff>9e6) return 'past-no-data';
+  if (diff>-864e5) return 'soon';
+  return 'next';
+}
+function getMatchdayNum(r) { const m=r&&r.match(/Matchday\s+(\d+)/i); return m?parseInt(m[1]):null; }
+function computeStandings(matches) {
+  const t = {};
+  matches.forEach(m => {
+    [m.team1,m.team2].forEach(n => { if (!t[n]) t[n]={name:n,p:0,w:0,d:0,l:0,gf:0,ga:0,pts:0}; });
+    if (m.score&&m.score.ft) {
+      const [g1,g2]=m.score.ft, a=t[m.team1], b=t[m.team2];
+      a.p++;b.p++;a.gf+=g1;a.ga+=g2;b.gf+=g2;b.ga+=g1;
+      if (g1>g2) {a.w++;a.pts+=3;b.l++;} else if (g1<g2) {b.w++;b.pts+=3;a.l++;} else {a.d++;b.d++;a.pts++;b.pts++;}
+    }
+  });
+  return Object.values(t).sort((x,y)=>y.pts-x.pts||(y.gf-y.ga)-(x.gf-x.ga)||y.gf-x.gf);
+}
+async function fetchData() {
+  setStatus('Buscando datos...',false);
+  try {
+    const r = await fetch(CONFIG.PRIMARY_URL,{cache:'no-store'});
+    if (!r.ok) throw new Error('CDN '+r.status);
+    const d = await r.json();
+    setStatus(`OK · ${new Date().toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'})}`,false);
+    return d;
+  } catch(e1) {
+    try {
+      const r = await fetch(CONFIG.FALLBACK_URL,{cache:'no-store'});
+      if (!r.ok) throw new Error('FB '+r.status);
+      const d = await r.json();
+      setStatus(`OK (fb) · ${new Date().toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'})}`,false);
+      return d;
+    } catch(e2) {
+      setStatus('Sin conexión',true);
+      throw e2;
+    }
+  }
+}
+function setStatus(t,e) {
+  document.getElementById('statusText').textContent=t;
+  document.getElementById('dataStatus').classList.toggle('error',!!e);
+}
+function renderMatchCard(m, key) {
+  const team=TEAMS[key], t1=translateCountry(m.team1), t2=translateCountry(m.team2);
+  const dt=parseMatchDate(m), status=getStatus(m), hasScore=status==='final';
+  const mdNum=getMatchdayNum(m.round);
+  const matchId=`${key}_${m.date}_${m.team1}_${m.team2}`.replace(/\W/g,'_');
+  const isHome=m.team1===team.name;
+  const card=document.createElement('article');
+  card.className=`ticket reveal visible ${status}`;
+  card.dataset.id=matchId;
+  let badge='';
+  if (status==='live') badge='<span class="match-status status-live">EN VIVO</span>';
+  else if (status==='final') badge='<span class="match-status status-final">FINAL</span>';
+  else if (status==='soon') badge='<span class="match-status status-soon">HOY/MAÑANA</span>';
+  const topRound=mdNum?`FECHA ${mdNum}`:(m.round||'').toUpperCase();
+  const f1=flagHtml(m.team1), f2=flagHtml(m.team2);
+  let main;
+  if (hasScore) {
+    const [g1,g2]=m.score.ft;
+    main=`<div class="score-final"><div>${flagHtml(m.team1,'big')}<span class="team-mini">${t1}</span><span>${g1}</span></div><span class="sep">:</span><div>${flagHtml(m.team2,'big')}<span>${g2}</span><span class="team-mini">${t2}</span></div></div>`;
+  } else {
+    main=`<div class="ticket-match">${isHome?`<span class="home">${f1}${t1}</span><span class="vs">contra</span><span>${f2}${t2}</span>`:`<span>${f1}${t1}</span><span class="vs">contra</span><span class="home">${f2}${t2}</span>`}</div>`;
+  }
+  card.innerHTML=`
+    <div class="ticket-row1"><span class="ticket-day">${formatPyDay(dt)}</span><span class="ticket-round">${topRound}${badge}</span></div>
+    ${main}
+    <div class="ticket-foot"><div><div class="ticket-time-label">${hasScore?'JUGADO':'HORA PY'}</div><div class="ticket-time">${formatPyTime(dt)}</div></div><div class="ticket-venue"><strong>${translateVenue(m.ground||'A confirmar')}</strong></div></div>
+    ${renderPredictHtml(matchId,t1,t2,status,m)}
+  `;
+  card.querySelectorAll('.predict-btn').forEach(btn => {
+    btn.addEventListener('click',()=>{
+      if (hasScore) return;
+      card.querySelectorAll('.predict-btn').forEach(b=>b.classList.remove('selected'));
+      btn.classList.add('selected');
+      predictions[matchId]={pick:btn.dataset.pick,date:m.date,team1:t1,team2:t2,matchday:mdNum};
+      renderSummary();
+      celebrate(btn);
+    });
+  });
+  return card;
+}
+function renderPredictHtml(id,t1,t2,status,m) {
+  if (status==='final') {
+    const p=predictions[id];
+    if (!p) return '';
+    const [g1,g2]=m.score.ft;
+    let real='Empate'; if (g1>g2) real=t1; else if (g1<g2) real=t2;
+    const ok=p.pick===real;
+    return `<div class="predict"><div class="predict-label">tu pronóstico fue:</div><div class="predict-buttons"><button class="predict-btn ${ok?'correct':'incorrect'}" disabled>${p.pick} ${ok?'✓ acertaste':'✗ falló'}</button></div></div>`;
+  }
+  const s=predictions[id];
+  return `<div class="predict"><div class="predict-label">¿Quién gana?</div><div class="predict-buttons">
+    <button class="predict-btn ${s&&s.pick===t1?'selected':''}" data-pick="${t1}">${t1}</button>
+    <button class="predict-btn ${s&&s.pick==='Empate'?'selected':''}" data-pick="Empate">Empate</button>
+    <button class="predict-btn ${s&&s.pick===t2?'selected':''}" data-pick="${t2}">${t2}</button>
+  </div></div>`;
+}
+function renderTeam(key,data) {
+  const team=TEAMS[key], c=document.getElementById(team.sectionId);
+  c.innerHTML='';
+  const tm=data.matches.filter(m=>m.group===team.group).filter(m=>m.team1===team.name||m.team2===team.name).sort((a,b)=>parseMatchDate(a)-parseMatchDate(b));
+  if (tm.length===0) { c.innerHTML='<div class="loading-placeholder">sin partidos</div>'; return; }
+  tm.forEach(m=>c.appendChild(renderMatchCard(m,key)));
+  const gm=data.matches.filter(m=>m.group===team.group);
+  if (gm.some(m=>m.score&&m.score.ft)) renderStandings(key,gm);
+}
+function renderStandings(key,gm) {
+  const team=TEAMS[key], table=computeStandings(gm);
+  const body=document.getElementById(team.standingsBodyId);
+  body.innerHTML='';
+  table.forEach((r,i)=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td class="pos">${i+1}</td><td class="team-cell">${flagHtml(r.name)}${translateCountry(r.name)}</td><td class="num">${r.p}</td><td class="num">${r.w}</td><td class="num">${r.d}</td><td class="num">${r.l}</td><td class="num">${r.gf}:${r.ga}</td><td class="pts">${r.pts}</td>`;
+    body.appendChild(tr);
+  });
+  document.getElementById(team.standingsId).style.display='block';
+}
+function renderSummary() {
+  const ps=document.getElementById('psContent');
+  const entries=Object.entries(predictions);
+  if (entries.length===0) { ps.innerHTML='<p class="ps-empty">Hacé clic en los partidos de arriba y se llenan acá ☝️</p>'; return; }
+  entries.sort((a,b)=>(a[1].date||'').localeCompare(b[1].date||''));
+  let html='<div class="ps-grid">';
+  entries.forEach(([id,p])=>{
+    let badge='', cls='';
+    if (appData) {
+      const m=appData.matches.find(x=>x.date===p.date&&translateCountry(x.team1)===p.team1&&translateCountry(x.team2)===p.team2);
+      if (m&&m.score&&m.score.ft) {
+        const [g1,g2]=m.score.ft;
+        let real='Empate'; if (g1>g2) real=p.team1; else if (g1<g2) real=p.team2;
+        const ok=p.pick===real;
+        cls=ok?'correct':'incorrect';
+        badge=`<div class="result-badge">${ok?'✓ ACERTASTE':'✗ falló'} (${g1}-${g2})</div>`;
+      }
+    }
+    html+=`<div class="ps-cell ${cls}"><div class="ps-cell-meta">${p.team1} vs ${p.team2}</div><div class="ps-cell-vote">→ ${p.pick}</div>${badge}</div>`;
+  });
+  html+='</div>';
+  ps.innerHTML=html;
+}
+function updateCountdown() {
+  if (!appData) return;
+  const now=Date.now();
+  const upcoming=appData.matches.filter(m=>(m.team1==='Argentina'||m.team2==='Argentina'||m.team1==='Paraguay'||m.team2==='Paraguay')&&(!m.score||!m.score.ft)).map(m=>({m,t:parseMatchDate(m).getTime()})).filter(x=>x.t>now-72e5).sort((a,b)=>a.t-b.t);
+  if (upcoming.length===0) {
+    document.getElementById('cdTitle').textContent='TORNEO TERMINADO';
+    document.getElementById('cdSubtitle').textContent='';
+    document.getElementById('cdFoot').innerHTML='— gracias por todo —';
+    return;
+  }
+  const {m,t}=upcoming[0], dt=new Date(t);
+  document.getElementById('cdTitle').textContent='PRÓXIMO PARTIDO';
+  document.getElementById('cdSubtitle').textContent=`${translateCountry(m.team1).toUpperCase()} vs ${translateCountry(m.team2).toUpperCase()}`;
+  document.getElementById('cdFoot').innerHTML=formatPyFull(dt);
+  let diff=Math.max(0,t-now);
+  const d=Math.floor(diff/86400000); diff-=d*86400000;
+  const h=Math.floor(diff/3600000); diff-=h*3600000;
+  const mn=Math.floor(diff/60000); diff-=mn*60000;
+  const s=Math.floor(diff/1000);
+  document.getElementById('cd-days').textContent=String(d).padStart(2,'0');
+  document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent=String(mn).padStart(2,'0');
+  document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+}
+async function loadAndRender() {
+  try {
+    appData=await fetchData();
+    renderTeam('argentina',appData);
+    renderTeam('paraguay',appData);
+    renderSummary();
+    updateCountdown();
+  } catch(e) {
+    document.querySelectorAll('.loading-placeholder').forEach(el=>{el.textContent='⚠ sin conexión a la fuente de datos';});
+  }
+}
+function celebrate(btn) {
+  const r=btn.getBoundingClientRect(), colors=['#6CACE4','#FFC72C','#E63946','#2A9D5C'];
+  for (let i=0;i<10;i++) {
+    const c=document.createElement('div');
+    c.style.cssText=`position:fixed;left:${r.left+r.width/2}px;top:${r.top+r.height/2}px;width:8px;height:12px;background:${colors[Math.floor(Math.random()*colors.length)]};pointer-events:none;z-index:999;border-radius:2px`;
+    document.body.appendChild(c);
+    const a=(Math.PI*2*i)/10+Math.random()*0.5, d=40+Math.random()*60;
+    c.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:`translate(${Math.cos(a)*d}px,${Math.sin(a)*d-20}px) rotate(${Math.random()*720}deg)`,opacity:0}],{duration:700+Math.random()*300,easing:'cubic-bezier(0.16, 1, 0.3, 1)'}).onfinish=()=>c.remove();
+  }
+}
+const io=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if (e.isIntersecting) {setTimeout(()=>e.target.classList.add('visible'),i*60); io.unobserve(e.target);}});},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const zone=document.getElementById('confetti-zone'), confColors=['#6CACE4','#FFC72C','#E63946','#F5EDD5','#1D4E89','#2A9D5C'];
+for (let i=0;i<30;i++) {
+  const c=document.createElement('div');
+  c.className='confetti';
+  c.style.left=Math.random()*100+'%';
+  c.style.top=Math.random()*100+'%';
+  c.style.background=confColors[Math.floor(Math.random()*confColors.length)];
+  c.style.transform=`rotate(${Math.random()*360}deg)`;
+  c.style.opacity=0.5+Math.random()*0.4;
+  c.style.animation=`bounce1 ${3+Math.random()*3}s ease-in-out ${Math.random()*2}s infinite`;
+  zone.appendChild(c);
+}
+const modoBtn=document.getElementById('modoBtn');
+let papInt=null;
+function setModo(on) {
+  document.body.classList.toggle('modo-hincha',on);
+  modoBtn.classList.toggle('active',on);
+  modoBtn.textContent=on?'✕ Apagar':'★ Modo Hincha';
+  if (on) {
+    if (papInt) clearInterval(papInt);
+    papInt=setInterval(()=>{
+      const p=document.createElement('div');
+      p.className='papelito';
+      p.style.left=Math.random()*100+'vw';
+      p.style.background=confColors[Math.floor(Math.random()*confColors.length)];
+      p.style.animationDuration=(3+Math.random()*3)+'s';
+      p.style.transform=`rotate(${Math.random()*360}deg)`;
+      document.body.appendChild(p);
+      setTimeout(()=>p.remove(),6500);
+    },120);
+  } else {
+    clearInterval(papInt);
+    document.querySelectorAll('.papelito').forEach(p=>p.remove());
+  }
+}
+modoBtn.addEventListener('click',()=>setModo(!document.body.classList.contains('modo-hincha')));
+document.getElementById('refreshBtn').addEventListener('click',loadAndRender);
+loadAndRender();
+setInterval(loadAndRender,CONFIG.REFRESH_INTERVAL);
+setInterval(updateCountdown,1000);
+</script>
+</body>
+</html>
