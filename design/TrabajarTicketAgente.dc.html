@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafafa; }
+    * { box-sizing: border-box; }
+    ::placeholder { color: #9ca3af; }
+  </style>
+</helmet>
+
+<!-- Top Navigation -->
+<div style="background: #fff; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 16px;">
+    <div style="font-weight: 600; font-size: 18px; color: #111827;">TicketHub</div>
+    <select style="padding: 6px 32px 6px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; background: #fff; color: #374151; cursor: pointer;">
+      <option>IT</option>
+    </select>
+  </div>
+  <div style="display: flex; align-items: center; gap: 12px;">
+    <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #10b981 0%, #059669 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 600;">SR</div>
+  </div>
+</div>
+
+<div style="display: flex; gap: 24px; max-width: 1160px; margin: 28px auto; padding: 0 24px; align-items: flex-start;">
+
+  <!-- Main column -->
+  <div style="flex: 1; min-width: 0;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+      <div style="font-size: 13px; color: #6b7280; font-weight: 500;">TCK-2038</div>
+      <span style="padding: 3px 10px; background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 600; border-radius: 12px;">In Progress</span>
+    </div>
+    <div style="font-weight: 600; font-size: 20px; color: #111827; margin-bottom: 20px;">No puedo acceder a la VPN</div>
+
+    <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <div style="width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; font-weight: 600;">MG</div>
+        <div style="font-size: 13px; font-weight: 600; color: #111827;">María Gómez</div>
+        <div style="font-size: 11px; color: #4338ca; background: #eef2ff; padding: 1px 6px; border-radius: 4px; font-weight: 600;">Empleado</div>
+        <div style="font-size: 12px; color: #9ca3af;">21 ago, 09:14</div>
+      </div>
+      <div style="font-size: 14px; color: #374151; line-height: 1.5;">Desde ayer no puedo conectarme a la VPN de la empresa. El cliente muestra error de autenticación aunque la contraseña es correcta. Ya reinicié la notebook y probé desde otra red.</div>
+    </div>
+
+    <div style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 10px;">Actividad</div>
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+      <div style="display: flex; gap: 10px; align-items: flex-start;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #e5e7eb; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg style="width: 12px; height: 12px; color: #6b7280;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+        </div>
+        <div style="font-size: 13px; color: #6b7280; padding-top: 3px;">Cambiaste el estado de <b style="color: #374151;">To Do</b> a <b style="color: #374151;">In Progress</b> · 21 ago, 10:02</div>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: flex-start;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #e5e7eb; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg style="width: 12px; height: 12px; color: #6b7280;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+        </div>
+        <div style="font-size: 13px; color: #6b7280; padding-top: 3px;">Se auto-asignó el ticket · 21 ago, 09:58</div>
+      </div>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px;">
+      <textarea placeholder="Escribí una respuesta para el empleado..." style="width: 100%; height: 90px; border: none; outline: none; font-size: 14px; color: #111827; font-family: inherit; resize: vertical;"></textarea>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+        <div style="display: flex; gap: 8px;">
+          <button style="width: 30px; height: 30px; border: 1px solid #e5e7eb; background: #fff; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 15px; height: 15px; color: #6b7280;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.44 11.05l-9.19 9.19a5 5 0 01-7.07-7.07l9.19-9.19a3.5 3.5 0 015 5l-9.2 9.19a1.5 1.5 0 01-2.12-2.12l8.49-8.48" /></svg>
+          </button>
+        </div>
+        <button style="padding: 8px 16px; background: #3b82f6; color: #fff; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;">Enviar respuesta</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right sidebar - actions -->
+  <div style="width: 280px; flex-shrink: 0; display: flex; flex-direction: column; gap: 16px;">
+
+    <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div>
+          <div style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 6px;">Estado</div>
+          <select style="width: 100%; padding: 8px 30px 8px 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; color: #111827; background: #fff; cursor: pointer;">
+            <option>Backlog</option>
+            <option>To Do</option>
+            <option selected>In Progress</option>
+            <option>Review</option>
+            <option>Done</option>
+          </select>
+        </div>
+        <div>
+          <div style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 6px;">Asignar a</div>
+          <select style="width: 100%; padding: 8px 30px 8px 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; color: #111827; background: #fff; cursor: pointer;">
+            <option selected>Sebastián Ruiz</option>
+            <option>Laura Fernández</option>
+            <option>Diego Torres</option>
+          </select>
+        </div>
+        <div>
+          <div style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 6px;">Prioridad</div>
+          <select style="width: 100%; padding: 8px 30px 8px 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; color: #991b1b; background: #fff; cursor: pointer;">
+            <option>Baja</option>
+            <option>Media</option>
+            <option selected>Alta</option>
+            <option>Urgente</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+      <button style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 13px; color: #374151; cursor: pointer; text-align: left;">
+        <svg style="width: 15px; height: 15px; color: #6b7280;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5.586a1 1 0 01.707.293l6.414 6.414a1 1 0 010 1.414l-8.586 8.586a1 1 0 01-1.414 0l-6.414-6.414A1 1 0 013 12.586V7a4 4 0 014-4z" /></svg>
+        Agregar etiqueta
+      </button>
+      <button style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 13px; color: #374151; cursor: pointer; text-align: left;">
+        <svg style="width: 15px; height: 15px; color: #6b7280;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.44 11.05l-9.19 9.19a5 5 0 01-7.07-7.07l9.19-9.19a3.5 3.5 0 015 5l-9.2 9.19a1.5 1.5 0 01-2.12-2.12l8.49-8.48" /></svg>
+        Adjuntar archivo
+      </button>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+      <span style="padding: 2px 8px; background: #fee2e2; color: #991b1b; font-size: 11px; font-weight: 600; border-radius: 4px;">Alta</span>
+      <span style="padding: 3px 10px; background: #eef2ff; color: #4338ca; font-size: 12px; font-weight: 600; border-radius: 12px;">Acceso</span>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

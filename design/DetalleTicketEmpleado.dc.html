@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafafa; }
+    * { box-sizing: border-box; }
+    ::placeholder { color: #9ca3af; }
+  </style>
+</helmet>
+
+<!-- Top Navigation -->
+<div style="background: #fff; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 16px;">
+    <div style="font-weight: 600; font-size: 18px; color: #111827;">TicketHub</div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 12px;">
+    <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 600;">MG</div>
+  </div>
+</div>
+
+<div style="display: flex; gap: 24px; max-width: 1080px; margin: 28px auto; padding: 0 24px; align-items: flex-start;">
+
+  <!-- Main column -->
+  <div style="flex: 1; min-width: 0;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+      <div style="font-size: 13px; color: #6b7280; font-weight: 500;">TCK-2038</div>
+      <span style="padding: 3px 10px; background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 600; border-radius: 12px;">In Progress</span>
+    </div>
+    <div style="font-weight: 600; font-size: 20px; color: #111827; margin-bottom: 20px;">No puedo acceder a la VPN</div>
+
+    <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; margin-bottom: 16px;">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <div style="width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; font-weight: 600;">MG</div>
+        <div style="font-size: 13px; font-weight: 600; color: #111827;">Vos</div>
+        <div style="font-size: 12px; color: #9ca3af;">21 ago, 09:14</div>
+      </div>
+      <div style="font-size: 14px; color: #374151; line-height: 1.5;">Desde ayer no puedo conectarme a la VPN de la empresa. El cliente muestra error de autenticación aunque la contraseña es correcta. Ya reinicié la notebook y probé desde otra red.</div>
+    </div>
+
+    <!-- Timeline -->
+    <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;">
+      <div style="display: flex; gap: 10px; align-items: flex-start;">
+        <div style="width: 26px; height: 26px; border-radius: 50%; background: #e5e7eb; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg style="width: 14px; height: 14px; color: #6b7280;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+        </div>
+        <div style="font-size: 13px; color: #6b7280; padding-top: 4px;"><b style="color: #374151;">Sebastián Ruiz</b> cambió el estado a <b style="color: #374151;">In Progress</b> · 21 ago, 10:02</div>
+      </div>
+
+      <div style="display: flex; gap: 10px; align-items: flex-start;">
+        <div style="width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, #10b981 0%, #059669 100%); flex-shrink: 0; border: 2px solid #fff; box-shadow: 0 0 0 1px #e5e7eb;"></div>
+        <div style="flex: 1; background: #f9fafb; border-radius: 8px; padding: 12px 14px;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <div style="font-size: 13px; font-weight: 600; color: #111827;">Sebastián Ruiz</div>
+            <div style="font-size: 11px; background: #eef2ff; color: #4338ca; padding: 1px 6px; border-radius: 4px; font-weight: 600;">Agente · IT</div>
+            <div style="font-size: 12px; color: #9ca3af;">21 ago, 10:05</div>
+          </div>
+          <div style="font-size: 14px; color: #374151; line-height: 1.5;">Gracias por el detalle. Estoy revisando tu certificado de acceso, en unos minutos te confirmo si hay que reemitirlo.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px;">
+      <textarea placeholder="Escribí una respuesta..." style="width: 100%; height: 72px; border: none; outline: none; font-size: 14px; color: #111827; font-family: inherit; resize: vertical;"></textarea>
+      <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
+        <button style="padding: 8px 16px; background: #3b82f6; color: #fff; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;">Responder</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right sidebar -->
+  <div style="width: 260px; flex-shrink: 0; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div>
+        <div style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 6px;">Agente asignado</div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #10b981 0%, #059669 100%);"></div>
+          <div style="font-size: 14px; color: #111827;">Sebastián Ruiz</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 6px;">Departamento</div>
+        <div style="font-size: 14px; color: #111827;">IT</div>
+      </div>
+      <div>
+        <div style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 6px;">Prioridad</div>
+        <span style="padding: 2px 8px; background: #fee2e2; color: #991b1b; font-size: 11px; font-weight: 600; border-radius: 4px;">Alta</span>
+      </div>
+      <div>
+        <div style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 6px;">Creado</div>
+        <div style="font-size: 14px; color: #111827;">21 ago 2026</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

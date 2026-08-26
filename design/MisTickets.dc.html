@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafafa; }
+    * { box-sizing: border-box; }
+    ::placeholder { color: #9ca3af; }
+    tr.tk-row:hover { background: #f9fafb; }
+  </style>
+</helmet>
+
+<!-- Top Navigation -->
+<div style="background: #fff; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 16px;">
+    <div style="font-weight: 600; font-size: 18px; color: #111827;">TicketHub</div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 12px;">
+    <div style="position: relative;">
+      <input type="text" placeholder="Buscar tickets..." style="padding: 8px 12px 8px 36px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; width: 240px; background: #fff;">
+      <svg style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: #9ca3af;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+    <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 600;">MG</div>
+  </div>
+</div>
+
+<div style="padding: 28px 32px;">
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+    <div style="font-weight: 600; font-size: 20px; color: #111827;">Mis tickets</div>
+    <button style="display: flex; align-items: center; gap: 6px; padding: 9px 16px; background: #3b82f6; color: #fff; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;">
+      <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+      Nuevo ticket
+    </button>
+  </div>
+
+  <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
+    <table style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr style="border-bottom: 1px solid #e5e7eb;">
+          <th style="text-align: left; padding: 10px 16px; font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px;">Ticket</th>
+          <th style="text-align: left; padding: 10px 16px; font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px;">Departamento</th>
+          <th style="text-align: left; padding: 10px 16px; font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px;">Asunto</th>
+          <th style="text-align: left; padding: 10px 16px; font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px;">Estado</th>
+          <th style="text-align: left; padding: 10px 16px; font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px;">Creado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tk-row" style="border-bottom: 1px solid #f3f4f6; cursor: pointer;">
+          <td style="padding: 12px 16px; font-size: 13px; color: #6b7280; font-weight: 500;">TCK-2041</td>
+          <td style="padding: 12px 16px; font-size: 14px; color: #374151;">Finanzas</td>
+          <td style="padding: 12px 16px; font-size: 14px; color: #111827;">Reembolso de viáticos pendiente</td>
+          <td style="padding: 12px 16px;"><span style="padding: 3px 10px; background: #dbeafe; color: #1e40af; font-size: 12px; font-weight: 600; border-radius: 12px;">To Do</span></td>
+          <td style="padding: 12px 16px; font-size: 13px; color: #9ca3af;">22 ago 2026</td>
+        </tr>
+        <tr class="tk-row" style="border-bottom: 1px solid #f3f4f6; cursor: pointer;">
+          <td style="padding: 12px 16px; font-size: 13px; color: #6b7280; font-weight: 500;">TCK-2038</td>
+          <td style="padding: 12px 16px; font-size: 14px; color: #374151;">IT</td>
+          <td style="padding: 12px 16px; font-size: 14px; color: #111827;">No puedo acceder a la VPN</td>
+          <td style="padding: 12px 16px;"><span style="padding: 3px 10px; background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 600; border-radius: 12px;">In Progress</span></td>
+          <td style="padding: 12px 16px; font-size: 13px; color: #9ca3af;">21 ago 2026</td>
+        </tr>
+        <tr class="tk-row" style="border-bottom: 1px solid #f3f4f6; cursor: pointer;">
+          <td style="padding: 12px 16px; font-size: 13px; color: #6b7280; font-weight: 500;">TCK-2029</td>
+          <td style="padding: 12px 16px; font-size: 14px; color: #374151;">RRHH</td>
+          <td style="padding: 12px 16px; font-size: 14px; color: #111827;">Consulta sobre días de vacaciones</td>
+          <td style="padding: 12px 16px;"><span style="padding: 3px 10px; background: #ede9fe; color: #5b21b6; font-size: 12px; font-weight: 600; border-radius: 12px;">Review</span></td>
+          <td style="padding: 12px 16px; font-size: 13px; color: #9ca3af;">18 ago 2026</td>
+        </tr>
+        <tr class="tk-row" style="border-bottom: 1px solid #f3f4f6; cursor: pointer;">
+          <td style="padding: 12px 16px; font-size: 13px; color: #6b7280; font-weight: 500;">TCK-2014</td>
+          <td style="padding: 12px 16px; font-size: 14px; color: #374151;">Compras</td>
+          <td style="padding: 12px 16px; font-size: 14px; color: #111827;">Alta de proveedor nuevo</td>
+          <td style="padding: 12px 16px;"><span style="padding: 3px 10px; background: #f3f4f6; color: #4b5563; font-size: 12px; font-weight: 600; border-radius: 12px;">Backlog</span></td>
+          <td style="padding: 12px 16px; font-size: 13px; color: #9ca3af;">14 ago 2026</td>
+        </tr>
+        <tr class="tk-row" style="border-bottom: 1px solid #f3f4f6; cursor: pointer;">
+          <td style="padding: 12px 16px; font-size: 13px; color: #6b7280; font-weight: 500;">TCK-1998</td>
+          <td style="padding: 12px 16px; font-size: 14px; color: #374151;">IT</td>
+          <td style="padding: 12px 16px; font-size: 14px; color: #111827;">Instalación de licencia de software</td>
+          <td style="padding: 12px 16px;"><span style="padding: 3px 10px; background: #d1fae5; color: #065f46; font-size: 12px; font-weight: 600; border-radius: 12px;">Done</span></td>
+          <td style="padding: 12px 16px; font-size: 13px; color: #9ca3af;">9 ago 2026</td>
+        </tr>
+        <tr class="tk-row" style="cursor: pointer;">
+          <td style="padding: 12px 16px; font-size: 13px; color: #6b7280; font-weight: 500;">TCK-1987</td>
+          <td style="padding: 12px 16px; font-size: 14px; color: #374151;">Legal</td>
+          <td style="padding: 12px 16px; font-size: 14px; color: #111827;">Revisión de contrato de servicio</td>
+          <td style="padding: 12px 16px;"><span style="padding: 3px 10px; background: #d1fae5; color: #065f46; font-size: 12px; font-weight: 600; border-radius: 12px;">Done</span></td>
+          <td style="padding: 12px 16px; font-size: 13px; color: #9ca3af;">2 ago 2026</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

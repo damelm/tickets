@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafafa; }
+    * { box-sizing: border-box; }
+    ::placeholder { color: #9ca3af; }
+  </style>
+</helmet>
+
+<!-- Top Navigation -->
+<div style="background: #fff; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 16px;">
+    <div style="font-weight: 600; font-size: 18px; color: #111827;">TicketHub</div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 12px;">
+    <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 600;">MG</div>
+  </div>
+</div>
+
+<div style="max-width: 640px; margin: 40px auto; padding: 0 24px;">
+  <div style="margin-bottom: 24px;">
+    <div style="font-weight: 600; font-size: 20px; color: #111827;">Nuevo ticket</div>
+    <div style="font-size: 14px; color: #6b7280; margin-top: 4px;">Describí tu solicitud y elegí el departamento que corresponde.</div>
+  </div>
+
+  <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px;">
+    <div style="margin-bottom: 18px;">
+      <div style="font-size: 13px; font-weight: 500; color: #374151; margin-bottom: 6px;">Departamento</div>
+      <select style="width: 100%; padding: 9px 32px 9px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; color: #111827; background: #fff; cursor: pointer;">
+        <option>Finanzas</option>
+        <option>IT</option>
+        <option>RRHH</option>
+        <option>Compras</option>
+        <option>Legal</option>
+      </select>
+    </div>
+
+    <div style="margin-bottom: 18px;">
+      <div style="font-size: 13px; font-weight: 500; color: #374151; margin-bottom: 6px;">Asunto</div>
+      <input type="text" placeholder="Resumen breve de la solicitud" style="width: 100%; padding: 9px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; color: #111827; background: #fff;">
+    </div>
+
+    <div style="margin-bottom: 18px;">
+      <div style="font-size: 13px; font-weight: 500; color: #374151; margin-bottom: 6px;">Descripción</div>
+      <textarea placeholder="Detallá tu solicitud, incluí toda la información relevante..." style="width: 100%; height: 140px; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; color: #111827; background: #fff; font-family: inherit; resize: vertical;"></textarea>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <div style="font-size: 13px; font-weight: 500; color: #374151; margin-bottom: 8px;">Prioridad</div>
+      <div style="display: flex; gap: 8px;">
+        <div style="flex: 1; text-align: center; padding: 8px; border-radius: 6px; font-size: 13px; font-weight: 600; background: #dbeafe; color: #1e40af; border: 1.5px solid #93c5fd; cursor: pointer;">Baja</div>
+        <div style="flex: 1; text-align: center; padding: 8px; border-radius: 6px; font-size: 13px; font-weight: 600; background: #f9fafb; color: #6b7280; border: 1.5px solid #e5e7eb; cursor: pointer;">Media</div>
+        <div style="flex: 1; text-align: center; padding: 8px; border-radius: 6px; font-size: 13px; font-weight: 600; background: #f9fafb; color: #6b7280; border: 1.5px solid #e5e7eb; cursor: pointer;">Alta</div>
+        <div style="flex: 1; text-align: center; padding: 8px; border-radius: 6px; font-size: 13px; font-weight: 600; background: #f9fafb; color: #6b7280; border: 1.5px solid #e5e7eb; cursor: pointer;">Urgente</div>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: flex-end; gap: 10px;">
+      <button style="padding: 9px 18px; background: #fff; color: #374151; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer;">Cancelar</button>
+      <button style="padding: 9px 18px; background: #3b82f6; color: #fff; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;">Crear ticket</button>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

@@ -1,21 +1,15 @@
 {
   "artboards": [
-    {
-      "file": "KanbanBoard.dc.html",
-      "x": 0,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "Kanban Board View"
-    },
-    {
-      "file": "IssueList.dc.html",
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "List View"
-    }
+    { "file": "KanbanBoard.dc.html", "x": 0, "y": 0, "w": 1440, "h": 900, "title": "Kanban (Agente)" },
+    { "file": "IssueList.dc.html", "x": 1560, "y": 0, "w": 1440, "h": 900, "title": "Lista (Agente)" },
+    { "file": "Login.dc.html", "x": 3120, "y": 0, "w": 1440, "h": 900, "title": "Login" },
+    { "file": "CrearTicket.dc.html", "x": 4680, "y": 0, "w": 1440, "h": 900, "title": "Crear ticket (Empleado)" },
+    { "file": "MisTickets.dc.html", "x": 6240, "y": 0, "w": 1440, "h": 900, "title": "Mis tickets (Empleado)" },
+    { "file": "DetalleTicketEmpleado.dc.html", "x": 0, "y": 1060, "w": 1440, "h": 900, "title": "Detalle ticket (Empleado)" },
+    { "file": "TrabajarTicketAgente.dc.html", "x": 1560, "y": 1060, "w": 1440, "h": 900, "title": "Trabajar ticket (Agente)" },
+    { "file": "ConfigDepartamentos.dc.html", "x": 3120, "y": 1060, "w": 1440, "h": 900, "title": "Departamentos (Admin)" },
+    { "file": "GestionarUsuarios.dc.html", "x": 4680, "y": 1060, "w": 1440, "h": 900, "title": "Usuarios (Admin)" },
+    { "file": "Navegacion.dc.html", "x": 6240, "y": 1060, "w": 1440, "h": 900, "title": "Navegación" }
   ],
   "launch": {
     "view": "canvas"
