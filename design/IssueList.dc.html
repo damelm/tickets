@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafafa; }
+    * { box-sizing: border-box; }
+  </style>
+</helmet>
+
+<!-- Top Navigation -->
+<div style="background: #fff; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 16px;">
+    <div style="font-weight: 600; font-size: 18px; color: #111827;">ProjectHub</div>
+    <select style="padding: 6px 32px 6px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; background: #fff; color: #374151;">
+      <option>Frontend Team</option>
+    </select>
+  </div>
+  <div style="display: flex; align-items: center; gap: 12px;">
+    <div style="position: relative;">
+      <input type="text" placeholder="Search issues..." style="padding: 8px 12px 8px 36px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; width: 280px; background: #fff;">
+      <svg style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: #9ca3af;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+    <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 600;">JD</div>
+  </div>
+</div>
+
+<div style="display: flex; height: calc(100vh - 57px);">
+
+  <!-- Left Sidebar - Filters -->
+  <div style="width: 240px; background: #fff; border-right: 1px solid #e5e7eb; padding: 20px; overflow-y: auto;">
+    <div style="margin-bottom: 24px;">
+      <div style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Status</div>
+      <label style="display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer;">
+        <input type="checkbox" checked style="width: 16px; height: 16px; border-radius: 3px;">
+        <span style="font-size: 14px; color: #374151;">Backlog</span>
+        <span style="margin-left: auto; font-size: 12px; color: #9ca3af;">3</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer;">
+        <input type="checkbox" checked style="width: 16px; height: 16px; border-radius: 3px;">
+        <span style="font-size: 14px; color: #374151;">To Do</span>
+        <span style="margin-left: auto; font-size: 12px; color: #9ca3af;">2</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer;">
+        <input type="checkbox" checked style="width: 16px; height: 16px; border-radius: 3px;">
+        <span style="font-size: 14px; color: #374151;">In Progress</span>
+        <span style="margin-left: auto; font-size: 12px; color: #9ca3af;">2</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer;">
+        <input type="checkbox" checked style="width: 16px; height: 16px; border-radius: 3px;">
+        <span style="font-size: 14px; color: #374151;">Review</span>
+        <span style="margin-left: auto; font-size: 12px; color: #9ca3af;">1</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer;">
+        <input type="checkbox" style="width: 16px; height: 16px; border-radius: 3px;">
+        <span style="font-size: 14px; color: #374151;">Done</span>
+        <span style="margin-left: auto; font-size: 12px; color: #9ca3af;">3</span>
+      </label>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <div style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Type</div>
+      <label style="display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer;">
+        <input type="checkbox" checked style="width: 16px; height: 16px; border-radius: 3px;">
+        <div style="width: 16px; height: 16px; background: #3b82f6; border-radius: 3px;"></div>
+        <span style="font-size: 14px; color: #374151;">Task</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer;">
+        <input type="checkbox" checked style="width: 16px; height: 16px; border-radius: 3px;">
+        <div style="width: 16px; height: 16px; background: #ef4444; border-radius: 3px;"></div>
+        <span style="font-size: 14px; color: #374151;">Bug</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer;">
+        <input type="checkbox" checked style="width: 16px; height: 16px; border-radius: 3px;">
+        <div style="width: 16px; height: 16px; background: #8b5cf6; border-radius: 3px;"></div>
+        <span style="font-size: 14px; color: #374151;">Story</span>
+      </label>
+    </div>
+
+    <div>
+      <div style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Assignee</div>
+      <label style="display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer;">
+        <input type="checkbox" checked style="width: 16px; height: 16px; border-radius: 3px;">
+        <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); flex-shrink: 0;"></div>
+        <span style="font-size: 14px; color: #374151;">John Doe</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer;">
+        <input type="checkbox" checked style="width: 16px; height: 16px; border-radius: 3px;">
+        <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%); flex-shrink: 0;"></div>
+        <span style="font-size: 14px; color: #374151;">Jane Smith</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer;">
+        <input type="checkbox" checked style="width: 16px; height: 16px; border-radius: 3px;">
+        <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #10b981 0%, #059669 100%); flex-shrink: 0;"></div>
+        <span style="font-size: 14px; color: #374151;">Mike Johnson</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Main Content - Issue List -->
+  <div style="flex: 1; background: #fff; padding: 24px; overflow-y: auto;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+      <h2 style="font-size: 20px; font-weight: 600; color: #111827; margin: 0;">Issues</h2>
+      <button style="padding: 8px 16px; background: #6366f1; color: #fff; border: none; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer;">+ New Issue</button>
+    </div>
+
+    <!-- Table -->
+    <div style="border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
+      <!-- Header -->
+      <div style="display: grid; grid-template-columns: 120px 80px 1fr 140px 120px 140px; gap: 16px; padding: 12px 16px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px;">
+        <div>Key</div>
+        <div>Type</div>
+        <div>Title</div>
+        <div>Status</div>
+        <div>Priority</div>
+        <div>Assignee</div>
+      </div>
+
+      <!-- Row 1 -->
+      <div style="display: grid; grid-template-columns: 120px 80px 1fr 140px 120px 140px; gap: 16px; padding: 12px 16px; border-bottom: 1px solid #e5e7eb; align-items: center; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='#fff'">
+        <div style="font-size: 13px; color: #6366f1; font-weight: 500;">FRONT-145</div>
+        <div>
+          <div style="width: 20px; height: 20px; background: #3b82f6; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 12px; height: 12px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+              <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827;">Implement user authentication flow</div>
+        <div>
+          <span style="padding: 4px 10px; background: #f3f4f6; color: #6b7280; font-size: 12px; font-weight: 500; border-radius: 12px;">Backlog</span>
+        </div>
+        <div>
+          <span style="padding: 4px 10px; background: #dbeafe; color: #1e40af; font-size: 12px; font-weight: 600; border-radius: 12px;">Low</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);"></div>
+          <span style="font-size: 13px; color: #374151;">Jane Smith</span>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div style="display: grid; grid-template-columns: 120px 80px 1fr 140px 120px 140px; gap: 16px; padding: 12px 16px; border-bottom: 1px solid #e5e7eb; align-items: center; cursor: pointer;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='#fff'">
+        <div style="font-size: 13px; color: #6366f1; font-weight: 500;">FRONT-142</div>
+        <div>
+          <div style="width: 20px; height: 20px; background: #ef4444; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 12px; height: 12px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827;">Login button not responsive on mobile</div>
+        <div>
+          <span style="padding: 4px 10px; background: #eff6ff; color: #1e40af; font-size: 12px; font-weight: 500; border-radius: 12px;">To Do</span>
+        </div>
+        <div>
+          <span style="padding: 4px 10px; background: #fee2e2; color: #991b1b; font-size: 12px; font-weight: 600; border-radius: 12px;">High</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);"></div>
+          <span style="font-size: 13px; color: #374151;">Mike Johnson</span>
+        </div>
+      </div>
+
+      <!-- Row 3 -->
+      <div style="display: grid; grid-template-columns: 120px 80px 1fr 140px 120px 140px; gap: 16px; padding: 12px 16px; border-bottom: 1px solid #e5e7eb; align-items: center; cursor: pointer;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='#fff'">
+        <div style="font-size: 13px; color: #6366f1; font-weight: 500;">FRONT-144</div>
+        <div>
+          <div style="width: 20px; height: 20px; background: #3b82f6; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 12px; height: 12px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+              <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827;">Create project dashboard</div>
+        <div>
+          <span style="padding: 4px 10px; background: #eff6ff; color: #1e40af; font-size: 12px; font-weight: 500; border-radius: 12px;">To Do</span>
+        </div>
+        <div>
+          <span style="padding: 4px 10px; background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 600; border-radius: 12px;">Medium</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);"></div>
+          <span style="font-size: 13px; color: #374151;">John Doe</span>
+        </div>
+      </div>
+
+      <!-- Row 4 -->
+      <div style="display: grid; grid-template-columns: 120px 80px 1fr 140px 120px 140px; gap: 16px; padding: 12px 16px; border-bottom: 1px solid #e5e7eb; align-items: center; cursor: pointer;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='#fff'">
+        <div style="font-size: 13px; color: #6366f1; font-weight: 500;">FRONT-138</div>
+        <div>
+          <div style="width: 20px; height: 20px; background: #8b5cf6; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 12px; height: 12px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827;">Refactor API endpoints structure</div>
+        <div>
+          <span style="padding: 4px 10px; background: #dbeafe; color: #1e40af; font-size: 12px; font-weight: 500; border-radius: 12px;">In Progress</span>
+        </div>
+        <div>
+          <span style="padding: 4px 10px; background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 600; border-radius: 12px;">Medium</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);"></div>
+          <span style="font-size: 13px; color: #374151;">Jane Smith</span>
+        </div>
+      </div>
+
+      <!-- Row 5 -->
+      <div style="display: grid; grid-template-columns: 120px 80px 1fr 140px 120px 140px; gap: 16px; padding: 12px 16px; border-bottom: 1px solid #e5e7eb; align-items: center; cursor: pointer;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='#fff'">
+        <div style="font-size: 13px; color: #6366f1; font-weight: 500;">FRONT-141</div>
+        <div>
+          <div style="width: 20px; height: 20px; background: #3b82f6; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 12px; height: 12px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+              <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827;">Setup PostgreSQL database</div>
+        <div>
+          <span style="padding: 4px 10px; background: #dbeafe; color: #1e40af; font-size: 12px; font-weight: 500; border-radius: 12px;">In Progress</span>
+        </div>
+        <div>
+          <span style="padding: 4px 10px; background: #fee2e2; color: #991b1b; font-size: 12px; font-weight: 600; border-radius: 12px;">High</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #10b981 0%, #059669 100%);"></div>
+          <span style="font-size: 13px; color: #374151;">Mike Johnson</span>
+        </div>
+      </div>
+
+      <!-- Row 6 -->
+      <div style="display: grid; grid-template-columns: 120px 80px 1fr 140px 120px 140px; gap: 16px; padding: 12px 16px; align-items: center; cursor: pointer;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='#fff'">
+        <div style="font-size: 13px; color: #6366f1; font-weight: 500;">FRONT-135</div>
+        <div>
+          <div style="width: 20px; height: 20px; background: #8b5cf6; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 12px; height: 12px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827;">Add unit tests for auth module</div>
+        <div>
+          <span style="padding: 4px 10px; background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 500; border-radius: 12px;">Review</span>
+        </div>
+        <div>
+          <span style="padding: 4px 10px; background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 600; border-radius: 12px;">Medium</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);"></div>
+          <span style="font-size: 13px; color: #374151;">Mike Johnson</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

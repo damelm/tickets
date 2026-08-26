@@ -1,174 +1,80 @@
-# Sistema de Tickets de Soporte Técnico - Siete Fronteras
+# Sistema de Tickets Departamental
 
-Sistema completo de gestión de tickets de soporte técnico para uso interno.
+Sistema interno de gestión de tickets para comunicación entre empleados y departamentos.
 
-## Características
+## 📋 Descripción
 
-### 3 Niveles de Acceso
+Sistema que permite a los empleados enviar tickets a diferentes departamentos de la empresa y realizar seguimiento de sus solicitudes. Los agentes de cada departamento pueden gestionar y responder los tickets asignados a su área.
 
-1. **Público** (sin login): Crear nuevos tickets mediante wizard intuitivo
-2. **Auxiliar/Técnico** (con login): Gestionar tickets asignados
-3. **Administrador** (con login): Control total del sistema
+## 👥 Usuarios del Sistema
 
-### Funcionalidades Principales
+### Empleado (400 usuarios)
+- Crear tickets dirigidos a departamentos específicos
+- Ver estado de sus propios tickets
+- Recibir actualizaciones y respuestas
 
-- ✅ Wizard de 4 pasos para crear tickets
-- ✅ Sistema automático de SLA con alertas
-- ✅ Notificaciones por email en tiempo real
-- ✅ Autocierre automático de tickets resueltos
-- ✅ Dashboard con métricas en tiempo real
-- ✅ Reportes y analytics avanzados
-- ✅ Gestión completa de usuarios y configuraciones
-- ✅ Diseño responsive y moderno
+### Agente de Departamento
+- Ver tickets asignados a su departamento
+- Gestionar tickets: asignar, cambiar estado, comentar
+- Vistas Kanban y Lista para organización
 
-## Instalación
+### Admin/SuperAdmin
+- Configurar qué departamentos pueden recibir tickets
+- Gestionar usuarios y asignar roles
+- Administrar departamentos (18 departamentos en total)
 
-### Requisitos Previos
+## 🎯 Estados del Ticket
 
-- Node.js 18+
-- npm o yarn
+- **Backlog** - Ticket recibido, sin asignar
+- **To Do** - Asignado, pendiente de inicio
+- **In Progress** - En proceso de resolución
+- **Review** - En revisión
+- **Done** - Resuelto/Cerrado
 
-### Pasos de Instalación
+## 📊 Vistas Principales
 
-1. Clonar el repositorio
-```bash
-git clone <repository-url>
-cd tickets
-```
+### Para Empleados
+- Formulario de creación de tickets
+- Lista "Mis Tickets"
+- Detalle de ticket con comentarios
 
-2. Instalar dependencias del backend
-```bash
-npm install
-```
+### Para Agentes
+- Vista Kanban (gestión visual por estados)
+- Vista Lista (tabla filtrable)
+- Detalle de ticket (trabajar y responder)
 
-3. Instalar dependencias del frontend
-```bash
-cd client
-npm install
-cd ..
-```
+### Para Admins
+- Configuración de departamentos
+- Gestión de usuarios
+- Dashboard de estadísticas
 
-4. Configurar variables de entorno
-```bash
-cp .env.example .env
-# Editar .env con tus configuraciones
-```
+## 🏗️ Stack Tecnológico (Propuesto)
 
-5. Inicializar base de datos y crear usuario administrador
-```bash
-npm run setup
-```
+- **Backend:** Node.js + Express
+- **Base de Datos:** PostgreSQL
+- **Frontend:** React + Vite + Tailwind CSS
+- **Autenticación:** JWT
 
-6. Iniciar en modo desarrollo
-```bash
-npm run dev
-```
+## 📐 Diseño
 
-La aplicación estará disponible en:
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:3001
+Los mockups visuales están en la carpeta `/design`:
+- Vista Kanban y Lista interactivas
+- Diseño profesional similar a Linear/JIRA
+- Sistema responsive y accesible
 
-## Usuario Administrador Por Defecto
+## 🚀 Estado del Proyecto
 
-Después de ejecutar `npm run setup`, se creará un usuario administrador:
+**Fase actual:** Diseño y planificación
+- ✅ Modelo de datos definido
+- ✅ Mockups de vistas principales (Kanban, Lista)
+- ⏳ Pendiente: Mockups de vistas restantes (formularios, admin)
+- ⏳ Pendiente: Implementación backend
+- ⏳ Pendiente: Implementación frontend
 
-- **Email**: admin@sietefronteras.com.py
-- **Contraseña**: Admin123!
+## 📈 Escalabilidad
 
-⚠️ **IMPORTANTE**: Cambiar estas credenciales después del primer login.
-
-## Estructura del Proyecto
-
-```
-tickets/
-├── server/               # Backend (Node.js + Express)
-│   ├── index.js         # Servidor principal
-│   ├── database.js      # Configuración de base de datos
-│   ├── setup.js         # Script de inicialización
-│   ├── routes/          # Rutas de la API
-│   ├── middleware/      # Middlewares (auth, etc)
-│   ├── services/        # Lógica de negocio
-│   └── utils/           # Utilidades
-├── client/              # Frontend (React + Vite)
-│   ├── src/
-│   │   ├── components/  # Componentes React
-│   │   ├── pages/       # Páginas principales
-│   │   ├── hooks/       # Custom hooks
-│   │   ├── services/    # API calls
-│   │   └── utils/       # Utilidades
-│   └── package.json
-├── database/            # Base de datos SQLite
-└── package.json
-```
-
-## Uso
-
-### Acceso Público
-
-Visitar http://localhost:5173 y completar el wizard para crear un ticket.
-
-### Acceso Técnico
-
-1. Login con credenciales de auxiliar
-2. Ver dashboard con métricas personales
-3. Tomar tickets sin asignar
-4. Gestionar tickets asignados
-
-### Acceso Administrador
-
-1. Login con credenciales de admin
-2. Acceder a todos los módulos:
-   - Gestión completa de tickets
-   - Reportes y analytics
-   - Configuración del sistema
-   - Gestión de usuarios
-
-## Configuración
-
-### SLA (Service Level Agreement)
-
-Configurar tiempos de SLA desde el panel de administrador:
-- Crítica: 4 horas (default)
-- Alta: 8 horas (default)
-- Media: 24 horas (default)
-- Baja: 72 horas (default)
-
-### Notificaciones Email
-
-Configurar SMTP en el archivo `.env`:
-- Para Gmail: Usar app password
-- Para otros: Configurar host, puerto y credenciales
-
-### Autocierre
-
-Los tickets en estado "Resuelto" se cierran automáticamente después de 72 horas (configurable).
-
-## Producción
-
-### Build
-
-```bash
-npm run build
-```
-
-### Iniciar
-
-```bash
-npm start
-```
-
-### Variables de Entorno
-
-Asegurarse de configurar correctamente:
-- `NODE_ENV=production`
-- `JWT_SECRET` con valor seguro
-- `FRONTEND_URL` con dominio real
-- Credenciales de email válidas
-
-## Soporte Técnico
-
-Para consultas y soporte, contactar al departamento de IT.
-
-## Licencia
-
-Uso interno - Siete Fronteras, Paraguay
+Sistema diseñado para soportar:
+- 400 usuarios concurrentes
+- 18 departamentos
+- Miles de tickets
+- Optimizado con índices, paginación y connection pooling

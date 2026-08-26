@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafafa; }
+    * { box-sizing: border-box; }
+  </style>
+</helmet>
+
+<!-- Top Navigation -->
+<div style="background: #fff; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 16px;">
+    <div style="font-weight: 600; font-size: 18px; color: #111827;">ProjectHub</div>
+    <select style="padding: 6px 32px 6px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; background: #fff; color: #374151; cursor: pointer;">
+      <option>Frontend Team</option>
+    </select>
+  </div>
+  <div style="display: flex; align-items: center; gap: 12px;">
+    <div style="position: relative;">
+      <input type="text" placeholder="Search issues..." style="padding: 8px 12px 8px 36px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; width: 280px; background: #fff;">
+      <svg style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: #9ca3af;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+    <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 600;">JD</div>
+  </div>
+</div>
+
+<!-- Kanban Board -->
+<div style="padding: 24px; overflow-x: auto;">
+  <div style="display: flex; gap: 16px; min-width: min-content;">
+
+    <!-- Backlog Column -->
+    <div style="min-width: 280px; background: #f9fafb; border-radius: 8px; padding: 12px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+        <div style="font-weight: 600; font-size: 13px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px;">Backlog</div>
+        <div style="background: #e5e7eb; color: #6b7280; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 12px;">3</div>
+      </div>
+
+      <!-- Issue Card 1 -->
+      <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 12px; margin-bottom: 8px; cursor: pointer; transition: box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 6px -1px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow='none'">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+          <div style="font-size: 12px; color: #6b7280; font-weight: 500;">FRONT-145</div>
+          <div style="width: 16px; height: 16px; background: #3b82f6; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 10px; height: 10px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+              <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827; margin-bottom: 8px; line-height: 1.4;">Implement user authentication flow</div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="padding: 2px 8px; background: #dbeafe; color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px;">Low</div>
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%); border: 2px solid #fff;"></div>
+        </div>
+      </div>
+
+      <!-- Issue Card 2 -->
+      <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 12px; margin-bottom: 8px; cursor: pointer;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+          <div style="font-size: 12px; color: #6b7280; font-weight: 500;">FRONT-147</div>
+          <div style="width: 16px; height: 16px; background: #8b5cf6; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 10px; height: 10px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827; margin-bottom: 8px; line-height: 1.4;">Add dark mode support</div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="padding: 2px 8px; background: #dbeafe; color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px;">Low</div>
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border: 2px solid #fff;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- To Do Column -->
+    <div style="min-width: 280px; background: #f9fafb; border-radius: 8px; padding: 12px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+        <div style="font-weight: 600; font-size: 13px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px;">To Do</div>
+        <div style="background: #e5e7eb; color: #6b7280; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 12px;">2</div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 12px; margin-bottom: 8px; cursor: pointer;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+          <div style="font-size: 12px; color: #6b7280; font-weight: 500;">FRONT-142</div>
+          <div style="width: 16px; height: 16px; background: #ef4444; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 10px; height: 10px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827; margin-bottom: 8px; line-height: 1.4;">Login button not responsive on mobile</div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="padding: 2px 8px; background: #fee2e2; color: #991b1b; font-size: 11px; font-weight: 600; border-radius: 4px;">High</div>
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border: 2px solid #fff;"></div>
+        </div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 12px; cursor: pointer;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+          <div style="font-size: 12px; color: #6b7280; font-weight: 500;">FRONT-144</div>
+          <div style="width: 16px; height: 16px; background: #3b82f6; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 10px; height: 10px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+              <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827; margin-bottom: 8px; line-height: 1.4;">Create project dashboard</div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="padding: 2px 8px; background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 600; border-radius: 4px;">Medium</div>
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); border: 2px solid #fff;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- In Progress Column -->
+    <div style="min-width: 280px; background: #f9fafb; border-radius: 8px; padding: 12px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+        <div style="font-weight: 600; font-size: 13px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px;">In Progress</div>
+        <div style="background: #e5e7eb; color: #6b7280; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 12px;">2</div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #e5e7eb; border-left: 3px solid #3b82f6; border-radius: 6px; padding: 12px; margin-bottom: 8px; cursor: pointer;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+          <div style="font-size: 12px; color: #6b7280; font-weight: 500;">FRONT-138</div>
+          <div style="width: 16px; height: 16px; background: #8b5cf6; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 10px; height: 10px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827; margin-bottom: 8px; line-height: 1.4;">Refactor API endpoints structure</div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="padding: 2px 8px; background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 600; border-radius: 4px;">Medium</div>
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%); border: 2px solid #fff;"></div>
+        </div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #e5e7eb; border-left: 3px solid #3b82f6; border-radius: 6px; padding: 12px; cursor: pointer;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+          <div style="font-size: 12px; color: #6b7280; font-weight: 500;">FRONT-141</div>
+          <div style="width: 16px; height: 16px; background: #3b82f6; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 10px; height: 10px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+              <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827; margin-bottom: 8px; line-height: 1.4;">Setup PostgreSQL database</div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="padding: 2px 8px; background: #fee2e2; color: #991b1b; font-size: 11px; font-weight: 600; border-radius: 4px;">High</div>
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border: 2px solid #fff;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review Column -->
+    <div style="min-width: 280px; background: #f9fafb; border-radius: 8px; padding: 12px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+        <div style="font-weight: 600; font-size: 13px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px;">Review</div>
+        <div style="background: #e5e7eb; color: #6b7280; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 12px;">1</div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 12px; cursor: pointer;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+          <div style="font-size: 12px; color: #6b7280; font-weight: 500;">FRONT-135</div>
+          <div style="width: 16px; height: 16px; background: #8b5cf6; border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+            <svg style="width: 10px; height: 10px; color: #fff;" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: #111827; margin-bottom: 8px; line-height: 1.4;">Add unit tests for auth module</div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="padding: 2px 8px; background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 600; border-radius: 4px;">Medium</div>
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border: 2px solid #fff;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Done Column -->
+    <div style="min-width: 280px; background: #f9fafb; border-radius: 8px; padding: 12px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+        <div style="font-weight: 600; font-size: 13px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px;">Done</div>
+        <div style="background: #e5e7eb; color: #6b7280; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 12px;">3</div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 12px; margin-bottom: 8px; opacity: 0.7;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+          <div style="font-size: 12px; color: #6b7280; font-weight: 500;">FRONT-120</div>
+          <svg style="width: 14px; height: 14px; color: #10b981;" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <div style="font-size: 14px; color: #111827; margin-bottom: 8px; line-height: 1.4; text-decoration: line-through;">Setup CI/CD pipeline</div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="padding: 2px 8px; background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 600; border-radius: 4px;">Medium</div>
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); border: 2px solid #fff;"></div>
+        </div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 12px; margin-bottom: 8px; opacity: 0.7;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+          <div style="font-size: 12px; color: #6b7280; font-weight: 500;">FRONT-118</div>
+          <svg style="width: 14px; height: 14px; color: #10b981;" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <div style="font-size: 14px; color: #111827; margin-bottom: 8px; line-height: 1.4; text-decoration: line-through;">Design new landing page</div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="padding: 2px 8px; background: #dbeafe; color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px;">Low</div>
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%); border: 2px solid #fff;"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>
