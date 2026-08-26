@@ -64,12 +64,23 @@ Los mockups visuales están en la carpeta `/design`:
 
 ## 🚀 Estado del Proyecto
 
-**Fase actual:** Diseño y planificación
+**Fase actual:** MVP funcional
 - ✅ Modelo de datos definido
-- ✅ Mockups de vistas principales (Kanban, Lista)
-- ⏳ Pendiente: Mockups de vistas restantes (formularios, admin)
-- ⏳ Pendiente: Implementación backend
-- ⏳ Pendiente: Implementación frontend
+- ✅ Mockups de las 10 vistas (`/design`)
+- ✅ Backend: esquema, migraciones, auth JWT y API REST completa (`/server`)
+- ✅ Frontend: las 10 pantallas conectadas a la API real (`/client`)
+- ⏳ Pendiente: hardening de producción (rate limiting, refresh tokens, tests automatizados), despliegue
+
+### Cómo correrlo en local
+
+```bash
+cp .env.example .env
+docker compose up -d        # levanta Postgres
+cd server && npm install && npm run migrate && npm run seed && npm run dev
+cd client && npm install && npm run dev
+```
+
+Credenciales de desarrollo en `server/SEED_CREDENTIALS.local.md` (no versionado).
 
 ## 📈 Escalabilidad
 
