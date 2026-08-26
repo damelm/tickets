@@ -76,6 +76,18 @@ export async function getById(req, res, next) {
   }
 }
 
+export async function listAssignableAgents(req, res, next) {
+  try {
+    const ticket = await ticketsModel.findById(req.params.id);
+    if (!ticket) throw new HttpError(404, 'Ticket no encontrado');
+    assertCanManage(ticket, req.user);
+    const agents = await usersModel.listAgentsByDepartment(ticket.department_id);
+    res.json({ items: agents });
+  } catch (err) {
+    next(err);
+  }
+}
+
 export async function updateStatus(req, res, next) {
   try {
     const ticket = await ticketsModel.findById(req.params.id);

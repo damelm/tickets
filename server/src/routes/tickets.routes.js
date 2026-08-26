@@ -15,6 +15,7 @@ import {
   listMine,
   listFiltered,
   getById,
+  listAssignableAgents,
   updateStatus,
   updatePriority,
   updateAssignment,
@@ -29,6 +30,7 @@ router.post('/', requireRole('empleado'), validateBody(createTicketSchema), crea
 router.get('/mine', requireRole('empleado'), validateQuery(paginationQuerySchema), listMine);
 router.get('/', requireRole('agente', 'admin'), validateQuery(listTicketsQuerySchema), listFiltered);
 router.get('/:id', validateIdParam(), getById);
+router.get('/:id/assignable-agents', requireRole('agente', 'admin'), validateIdParam(), listAssignableAgents);
 router.patch('/:id/status', requireRole('agente', 'admin'), validateIdParam(), validateBody(updateStatusSchema), updateStatus);
 router.patch('/:id/priority', requireRole('agente', 'admin'), validateIdParam(), validateBody(updatePrioritySchema), updatePriority);
 router.patch('/:id/assignment', requireRole('agente', 'admin'), validateIdParam(), validateBody(updateAssignmentSchema), updateAssignment);

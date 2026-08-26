@@ -18,6 +18,16 @@ export async function findById(id) {
   return rows[0] ?? null;
 }
 
+export async function listAgentsByDepartment(departmentId) {
+  const { rows } = await pool.query(
+    `SELECT id, full_name FROM users
+     WHERE role = 'agente' AND department_id = $1 AND is_active = true
+     ORDER BY full_name`,
+    [departmentId]
+  );
+  return rows;
+}
+
 export async function list({ roles, departmentIds, isActive, q, page, pageSize }) {
   const conditions = [];
   const params = [];
