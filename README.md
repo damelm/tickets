@@ -64,12 +64,15 @@ Los mockups visuales están en la carpeta `/design`:
 
 ## 🚀 Estado del Proyecto
 
-**Fase actual:** MVP funcional
+**Fase actual:** MVP funcional + login con Google + hardening en curso
 - ✅ Modelo de datos definido
 - ✅ Mockups de las 10 vistas (`/design`)
 - ✅ Backend: esquema, migraciones, auth JWT y API REST completa (`/server`)
 - ✅ Frontend: las 10 pantallas conectadas a la API real (`/client`)
-- ⏳ Pendiente: hardening de producción (rate limiting, refresh tokens, tests automatizados), despliegue
+- ✅ Pantalla de configuración de admin (`app_settings`)
+- ✅ Login con Google (identidad) + contraseña oculta (respaldo) — falta generar el `GOOGLE_CLIENT_ID` real
+- ✅ Rate limiting, tests automatizados en rutas críticas de auth/autorización
+- ⏳ Pendiente: lint, forma de deploy productiva (Docker + Netbird)
 
 ### Cómo correrlo en local
 
@@ -81,6 +84,15 @@ cd client && npm install && npm run dev
 ```
 
 Credenciales de desarrollo en `server/SEED_CREDENTIALS.local.md` (no versionado).
+
+### Tests automatizados
+
+Los tests corren contra una base Postgres separada (`tickets_test`), nunca contra la de desarrollo:
+
+```bash
+docker exec <container_postgres> psql -U changeme -d tickets -c "CREATE DATABASE tickets_test"
+cd server && npm run migrate:test && npm run test
+```
 
 ## 📈 Escalabilidad
 

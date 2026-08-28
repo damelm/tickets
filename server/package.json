@@ -6,16 +6,26 @@
     "dev": "node --env-file=../.env --watch src/server.js",
     "start": "node --env-file=../.env src/server.js",
     "migrate": "node --env-file=../.env scripts/migrate.js",
-    "seed": "node --env-file=../.env scripts/seed.js"
+    "seed": "node --env-file=../.env scripts/seed.js",
+    "migrate:test": "node -e \"process.env.DATABASE_URL='postgres://changeme:changeme@localhost:5432/tickets_test'; import('./scripts/migrate.js')\"",
+    "test": "node --env-file=../.env node_modules/vitest/vitest.mjs run",
+    "lint": "eslint ."
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.21.1",
+    "express-rate-limit": "^8.6.2",
     "google-auth-library": "^11.0.2",
     "helmet": "^7.2.0",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.13.1",
     "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.9.1",
+    "globals": "^17.11.0",
+    "vitest": "^4.1.11"
   }
 }
