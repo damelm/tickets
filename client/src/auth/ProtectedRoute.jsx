@@ -4,7 +4,7 @@ import { useAuth } from './AuthContext.jsx';
 const HOME_BY_ROLE = {
   empleado: '/mis-tickets',
   agente: '/agente/lista',
-  admin: '/admin/usuarios',
+  admin: '/admin/dashboard',
 };
 
 export function ProtectedRoute({ roles, children }) {

@@ -11,6 +11,9 @@ const LINKS_BY_ROLE = {
     { to: '/agente/kanban', label: 'Kanban' },
   ],
   admin: [
+    { to: '/admin/dashboard', label: 'Dashboard' },
+    { to: '/agente/lista', label: 'Tickets' },
+    { to: '/agente/kanban', label: 'Kanban' },
     { to: '/admin/usuarios', label: 'Usuarios' },
     { to: '/admin/departamentos', label: 'Departamentos' },
     { to: '/admin/configuracion', label: 'Configuración' },
@@ -31,16 +34,16 @@ export function NavBar() {
   const links = LINKS_BY_ROLE[user.role] ?? [];
 
   return (
-    <div className="bg-surface border-b border-border px-6 py-3 flex items-center justify-between">
-      <div className="flex items-center gap-4">
-        <span className="font-semibold text-lg text-ink">TicketHub</span>
-        <nav className="flex items-center gap-1">
+    <div className="bg-surface border-b border-border px-6 py-3 flex items-center justify-between gap-3">
+      <div className="flex items-center gap-4 min-w-0">
+        <span className="font-semibold text-lg text-ink shrink-0">TicketHub</span>
+        <nav className="flex items-center gap-1 overflow-x-auto">
           {links.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-md text-sm font-medium ${
+                `px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap ${
                   isActive ? 'bg-indigo-50 text-indigo-700' : 'text-ink-muted hover:text-ink'
                 }`
               }
@@ -50,8 +53,8 @@ export function NavBar() {
           ))}
         </nav>
       </div>
-      <div className="flex items-center gap-3">
-        <span className="text-sm text-ink-muted">{user.fullName}</span>
+      <div className="flex items-center gap-3 shrink-0">
+        <span className="text-sm text-ink-muted hidden sm:inline">{user.fullName}</span>
         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white text-xs font-semibold">
           {initials(user.fullName)}
         </div>

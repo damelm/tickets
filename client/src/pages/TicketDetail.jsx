@@ -12,6 +12,8 @@ import {
 import { StatusBadge } from '../components/StatusBadge.jsx';
 import { PriorityBadge } from '../components/PriorityBadge.jsx';
 import { TicketTimeline } from '../components/TicketTimeline.jsx';
+import { Spinner, LoadingState } from '../components/Spinner.jsx';
+import { ErrorState, InlineError } from '../components/ErrorState.jsx';
 
 const STATUS_OPTIONS = [
   { value: 'backlog', label: 'Backlog' },
@@ -38,19 +40,32 @@ export function TicketDetail() {
   const [comment, setComment] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
+  const [loadError, setLoadError] = useState(null);
+  const [savingField, setSavingField] = useState(null);
 
   const reload = useCallback(async () => {
     const data = await getTicket(token, id);
     setTicket(data);
   }, [token, id]);
 
-  useEffect(() => {
-    reload();
+  const load = useCallback(async () => {
+    setLoadError(null);
+    try {
+      await reload();
+    } catch (err) {
+      setLoadError(err.message);
+    }
   }, [reload]);
 
   useEffect(() => {
+    load();
+  }, [load]);
+
+  useEffect(() => {
     if (canManage && ticket) {
-      listAssignableAgents(token, ticket.id).then((res) => setAgents(res.items));
+      listAssignableAgents(token, ticket.id)
+        .then((res) => setAgents(res.items))
+        .catch(() => setAgents([]));
     }
   }, [canManage, ticket?.id, token]);
 
@@ -70,34 +85,41 @@ export function TicketDetail() {
     }
   }
 
-  async function handleStatusChange(status) {
+  async function applyChange(field, action) {
+    setSavingField(field);
+    setError(null);
     try {
-      await updateTicketStatus(token, id, status);
+      await action();
       await reload();
     } catch (err) {
       setError(err.message);
+    } finally {
+      setSavingField(null);
     }
   }
 
-  async function handlePriorityChange(priority) {
-    try {
-      await updateTicketPriority(token, id, priority);
-      await reload();
-    } catch (err) {
-      setError(err.message);
-    }
+  const handleStatusChange = (status) =>
+    applyChange('status', () => updateTicketStatus(token, id, status));
+
+  const handlePriorityChange = (priority) =>
+    applyChange('priority', () => updateTicketPriority(token, id, priority));
+
+  const handleAssignmentChange = (assignedTo) =>
+    applyChange('assignment', () =>
+      updateTicketAssignment(token, id, assignedTo ? Number(assignedTo) : null),
+    );
+
+  if (loadError && !ticket) {
+    return (
+      <div className="max-w-md mx-auto my-10 px-6">
+        <div className="bg-surface border border-border rounded-lg">
+          <ErrorState title="No pudimos cargar el ticket" message={loadError} onRetry={load} />
+        </div>
+      </div>
+    );
   }
 
-  async function handleAssignmentChange(assignedTo) {
-    try {
-      await updateTicketAssignment(token, id, assignedTo ? Number(assignedTo) : null);
-      await reload();
-    } catch (err) {
-      setError(err.message);
-    }
-  }
-
-  if (!ticket) return <div className="p-8 text-sm text-ink-muted">Cargando...</div>;
+  if (!ticket) return <LoadingState label="Cargando ticket..." />;
 
   return (
     <div className="flex gap-6 max-w-6xl mx-auto my-7 px-6 items-start">
@@ -128,14 +150,15 @@ export function TicketDetail() {
             placeholder="Escribí una respuesta..."
             className="w-full h-20 border-none outline-none text-sm text-ink resize-y"
           />
-          {error && <div className="text-sm text-red-600 mt-1">{error}</div>}
+          <InlineError message={error} className="mt-1" />
           <div className="flex justify-end mt-2">
             <button
               type="submit"
-              disabled={submitting}
-              className="px-4 py-2 bg-accent text-white rounded-md text-[13px] font-semibold disabled:opacity-60"
+              disabled={submitting || !comment.trim()}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-white rounded-md text-[13px] font-semibold hover:bg-blue-600 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Responder
+              {submitting && <Spinner size="sm" />}
+              {submitting ? 'Enviando...' : 'Responder'}
             </button>
           </div>
         </form>
@@ -145,11 +168,15 @@ export function TicketDetail() {
         {canManage ? (
           <div className="bg-surface border border-border rounded-lg p-4 flex flex-col gap-3.5">
             <div>
-              <div className="text-xs font-semibold text-ink-muted uppercase tracking-wide mb-1.5">Estado</div>
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <span className="text-xs font-semibold text-ink-muted uppercase tracking-wide">Estado</span>
+                {savingField === 'status' && <Spinner size="sm" className="text-ink-faint" />}
+              </div>
               <select
                 value={ticket.status}
                 onChange={(e) => handleStatusChange(e.target.value)}
-                className="w-full px-2.5 py-2 border border-gray-300 rounded-md text-sm text-ink"
+                disabled={savingField === 'status'}
+                className="w-full px-2.5 py-2 border border-gray-300 rounded-md text-sm text-ink disabled:opacity-60"
               >
                 {STATUS_OPTIONS.map((o) => (
                   <option key={o.value} value={o.value}>
@@ -159,11 +186,15 @@ export function TicketDetail() {
               </select>
             </div>
             <div>
-              <div className="text-xs font-semibold text-ink-muted uppercase tracking-wide mb-1.5">Asignar a</div>
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <span className="text-xs font-semibold text-ink-muted uppercase tracking-wide">Asignar a</span>
+                {savingField === 'assignment' && <Spinner size="sm" className="text-ink-faint" />}
+              </div>
               <select
                 value={ticket.assigned_to ?? ''}
                 onChange={(e) => handleAssignmentChange(e.target.value)}
-                className="w-full px-2.5 py-2 border border-gray-300 rounded-md text-sm text-ink"
+                disabled={savingField === 'assignment'}
+                className="w-full px-2.5 py-2 border border-gray-300 rounded-md text-sm text-ink disabled:opacity-60"
               >
                 <option value="">Sin asignar</option>
                 {agents.map((a) => (
@@ -174,11 +205,15 @@ export function TicketDetail() {
               </select>
             </div>
             <div>
-              <div className="text-xs font-semibold text-ink-muted uppercase tracking-wide mb-1.5">Prioridad</div>
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <span className="text-xs font-semibold text-ink-muted uppercase tracking-wide">Prioridad</span>
+                {savingField === 'priority' && <Spinner size="sm" className="text-ink-faint" />}
+              </div>
               <select
                 value={ticket.priority}
                 onChange={(e) => handlePriorityChange(e.target.value)}
-                className="w-full px-2.5 py-2 border border-gray-300 rounded-md text-sm text-ink"
+                disabled={savingField === 'priority'}
+                className="w-full px-2.5 py-2 border border-gray-300 rounded-md text-sm text-ink disabled:opacity-60"
               >
                 {PRIORITY_OPTIONS.map((o) => (
                   <option key={o.value} value={o.value}>

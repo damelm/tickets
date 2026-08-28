@@ -11,7 +11,13 @@
   --color-border: #e5e7eb;
   --color-surface: #ffffff;
   --color-page: #fafafa;
+}
 
+/* Fuera de @theme a propósito: estos tokens se consumen solo por var() armado
+   dinámicamente (StatusBadge, PriorityBadge, Dashboard), y Tailwind v4 poda las
+   variables de @theme que no aparecen literalmente en el código — dentro de @theme
+   sobrevivían 5 de 18 y los badges quedaban sin fondo. */
+:root {
   --color-status-backlog-bg: #f3f4f6;
   --color-status-backlog-text: #4b5563;
   --color-status-todo-bg: #dbeafe;

@@ -10,6 +10,7 @@ import departmentsRoutes from './routes/departments.routes.js';
 import usersRoutes from './routes/users.routes.js';
 import ticketsRoutes from './routes/tickets.routes.js';
 import settingsRoutes from './routes/settings.routes.js';
+import statsRoutes from './routes/stats.routes.js';
 import { apiLimiter } from './middleware/rateLimit.js';
 
 const publicDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../public');
@@ -32,6 +33,7 @@ app.use('/api/departments', departmentsRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/tickets', ticketsRoutes);
 app.use('/api/settings', settingsRoutes);
+app.use('/api/stats', statsRoutes);
 
 app.use((req, res, next) => {
   if (req.path.startsWith('/api/')) {

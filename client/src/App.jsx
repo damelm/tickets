@@ -11,6 +11,7 @@ import { KanbanBoard } from './pages/agent/KanbanBoard.jsx';
 import { ConfigDepartamentos } from './pages/admin/ConfigDepartamentos.jsx';
 import { GestionarUsuarios } from './pages/admin/GestionarUsuarios.jsx';
 import { Configuracion } from './pages/admin/Configuracion.jsx';
+import { Dashboard } from './pages/admin/Dashboard.jsx';
 
 function RootRedirect() {
   const { isAuthenticated, user } = useAuth();
@@ -77,6 +78,16 @@ export default function App() {
             }
           />
 
+          <Route
+            path="/admin/dashboard"
+            element={
+              <ProtectedRoute roles={['admin']}>
+                <Layout>
+                  <Dashboard />
+                </Layout>
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/admin/departamentos"
             element={
