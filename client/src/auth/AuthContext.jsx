@@ -37,6 +37,11 @@ export function AuthProvider({ children }) {
         setAuth(result);
         return result.user;
       },
+      loginWithGoogle: async (idToken) => {
+        const result = await authApi.loginWithGoogle(idToken);
+        setAuth(result);
+        return result.user;
+      },
       logout: () => setAuth(null),
     }),
     [auth]
