@@ -6,3 +6,4 @@ client/node_modules/
 server/SEED_CREDENTIALS.local.md
 .DS_Store
 *.log
+graphify-out/

@@ -10,6 +10,7 @@ import { IssueList } from './pages/agent/IssueList.jsx';
 import { KanbanBoard } from './pages/agent/KanbanBoard.jsx';
 import { ConfigDepartamentos } from './pages/admin/ConfigDepartamentos.jsx';
 import { GestionarUsuarios } from './pages/admin/GestionarUsuarios.jsx';
+import { Configuracion } from './pages/admin/Configuracion.jsx';
 
 function RootRedirect() {
   const { isAuthenticated, user } = useAuth();
@@ -92,6 +93,17 @@ export default function App() {
               <ProtectedRoute roles={['admin']}>
                 <Layout>
                   <GestionarUsuarios />
+                </Layout>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/admin/configuracion"
+            element={
+              <ProtectedRoute roles={['admin']}>
+                <Layout>
+                  <Configuracion />
                 </Layout>
               </ProtectedRoute>
             }

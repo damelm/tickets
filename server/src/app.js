@@ -6,6 +6,7 @@ import authRoutes from './routes/auth.routes.js';
 import departmentsRoutes from './routes/departments.routes.js';
 import usersRoutes from './routes/users.routes.js';
 import ticketsRoutes from './routes/tickets.routes.js';
+import settingsRoutes from './routes/settings.routes.js';
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/departments', departmentsRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/tickets', ticketsRoutes);
+app.use('/api/settings', settingsRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ error: 'No encontrado' });

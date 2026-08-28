@@ -13,6 +13,7 @@ const LINKS_BY_ROLE = {
   admin: [
     { to: '/admin/usuarios', label: 'Usuarios' },
     { to: '/admin/departamentos', label: 'Departamentos' },
+    { to: '/admin/configuracion', label: 'Configuración' },
   ],
 };
 
