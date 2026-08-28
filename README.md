@@ -71,8 +71,8 @@ Los mockups visuales están en la carpeta `/design`:
 - ✅ Frontend: las 10 pantallas conectadas a la API real (`/client`)
 - ✅ Pantalla de configuración de admin (`app_settings`)
 - ✅ Login con Google (identidad) + contraseña oculta (respaldo) — falta generar el `GOOGLE_CLIENT_ID` real
-- ✅ Rate limiting, tests automatizados en rutas críticas de auth/autorización
-- ⏳ Pendiente: lint, forma de deploy productiva (Docker + Netbird)
+- ✅ Rate limiting, tests automatizados en rutas críticas de auth/autorización, lint (ESLint en `server/` y `client/`)
+- ✅ Forma de deploy productiva (Docker + Netbird)
 
 ### Cómo correrlo en local
 
@@ -93,6 +93,23 @@ Los tests corren contra una base Postgres separada (`tickets_test`), nunca contr
 docker exec <container_postgres> psql -U changeme -d tickets -c "CREATE DATABASE tickets_test"
 cd server && npm run migrate:test && npm run test
 ```
+
+### Despliegue en producción
+
+Topología: un solo VPS, sin exposición pública a internet — el acceso es solo vía [Netbird](https://netbird.io) (VPN privada WireGuard). El VPS corre el agente de Netbird a nivel de sistema operativo (no en un contenedor), y el firewall del VPS deniega todo el tráfico entrante salvo SSH y el puerto de Netbird/WireGuard. La app queda alcanzable solo por la IP privada de Netbird del servidor.
+
+```bash
+cp .env.example .env   # completar con valores reales de producción
+docker compose -f docker-compose.prod.yml up -d --build
+```
+
+Diferencias con dev:
+- Todo se sirve desde el mismo origen (Express sirve el build de `client/` como estáticos) — `CORS`/`CLIENT_ORIGIN` deja de ser crítico.
+- `VITE_API_URL` se fija en `/api` (relativo) al buildear la imagen, no en runtime.
+- `DATABASE_URL` apunta al servicio `postgres` de la red de Docker, no a `localhost`.
+- Postgres no publica su puerto hacia afuera del contenedor.
+
+Backups: `server/scripts/backup.sh` corre `pg_dump` + gzip contra el volumen `pg_backups`, purgando lo mayor a 14 días. Invocarlo con un cron del host (`docker exec <container_postgres> bash /path/backup.sh`). **Copiar esos backups fuera del VPS periódicamente** — un solo servidor con backups solo locales no sobrevive una falla de disco.
 
 ## 📈 Escalabilidad
 
