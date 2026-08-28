@@ -6,14 +6,7 @@ import { ErrorState, InlineError } from '../../components/ErrorState.jsx';
 import { LoadingState } from '../../components/Spinner.jsx';
 import { KanbanCard } from '../../components/kanban/KanbanCard.jsx';
 import { KanbanColumn } from '../../components/kanban/KanbanColumn.jsx';
-
-const COLUMNS = [
-  { value: 'backlog', label: 'Backlog' },
-  { value: 'todo', label: 'To Do' },
-  { value: 'in_progress', label: 'In Progress' },
-  { value: 'review', label: 'Review' },
-  { value: 'done', label: 'Done' },
-];
+import { STATUS_OPTIONS as COLUMNS } from '../../constants/tickets.js';
 
 // Tope que admite el validador de la API (listTicketsQuerySchema).
 const PAGE_SIZE = 100;

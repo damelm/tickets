@@ -7,14 +7,7 @@ import { PriorityBadge } from '../../components/PriorityBadge.jsx';
 import { EmptyState } from '../../components/EmptyState.jsx';
 import { ErrorState } from '../../components/ErrorState.jsx';
 import { SkeletonTableRows } from '../../components/Skeleton.jsx';
-
-const STATUSES = [
-  { value: 'backlog', label: 'Backlog' },
-  { value: 'todo', label: 'To Do' },
-  { value: 'in_progress', label: 'In Progress' },
-  { value: 'review', label: 'Review' },
-  { value: 'done', label: 'Done' },
-];
+import { STATUS_OPTIONS as STATUSES } from '../../constants/tickets.js';
 
 export function IssueList() {
   const { token } = useAuth();

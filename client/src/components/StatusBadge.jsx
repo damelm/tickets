@@ -1,10 +1,4 @@
-const LABELS = {
-  backlog: 'Backlog',
-  todo: 'To Do',
-  in_progress: 'In Progress',
-  review: 'Review',
-  done: 'Done',
-};
+import { STATUS_LABELS } from '../constants/tickets.js';
 
 export function StatusBadge({ status }) {
   return (
@@ -15,7 +9,7 @@ export function StatusBadge({ status }) {
         color: `var(--color-status-${status}-text)`,
       }}
     >
-      {LABELS[status] ?? status}
+      {STATUS_LABELS[status] ?? status}
     </span>
   );
 }

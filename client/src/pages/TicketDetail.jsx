@@ -14,21 +14,7 @@ import { PriorityBadge } from '../components/PriorityBadge.jsx';
 import { TicketTimeline } from '../components/TicketTimeline.jsx';
 import { Spinner, LoadingState } from '../components/Spinner.jsx';
 import { ErrorState, InlineError } from '../components/ErrorState.jsx';
-
-const STATUS_OPTIONS = [
-  { value: 'backlog', label: 'Backlog' },
-  { value: 'todo', label: 'To Do' },
-  { value: 'in_progress', label: 'In Progress' },
-  { value: 'review', label: 'Review' },
-  { value: 'done', label: 'Done' },
-];
-
-const PRIORITY_OPTIONS = [
-  { value: 'baja', label: 'Baja' },
-  { value: 'media', label: 'Media' },
-  { value: 'alta', label: 'Alta' },
-  { value: 'urgente', label: 'Urgente' },
-];
+import { STATUS_OPTIONS, PRIORITY_OPTIONS } from '../constants/tickets.js';
 
 export function TicketDetail() {
   const { id } = useParams();

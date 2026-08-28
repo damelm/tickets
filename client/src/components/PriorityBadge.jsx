@@ -1,4 +1,4 @@
-const LABELS = { baja: 'Baja', media: 'Media', alta: 'Alta', urgente: 'Urgente' };
+import { PRIORITY_LABELS } from '../constants/tickets.js';
 
 export function PriorityBadge({ priority }) {
   return (
@@ -9,7 +9,7 @@ export function PriorityBadge({ priority }) {
         color: `var(--color-priority-${priority}-text)`,
       }}
     >
-      {LABELS[priority] ?? priority}
+      {PRIORITY_LABELS[priority] ?? priority}
     </span>
   );
 }
